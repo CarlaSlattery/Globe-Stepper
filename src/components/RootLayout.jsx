@@ -8,8 +8,12 @@ function RootLayout() {
       <header>
         <nav>
           <span>GlobeStepper</span>
-          <NavLink to="/">Challenges</NavLink>
-          <NavLink to="login">Login</NavLink>
+          <NavLink to="/" activeClassName="active">
+            Challenges
+          </NavLink>
+          <NavLink to="login" activeClassName="active">
+            Login
+          </NavLink>
         </nav>
       </header>
       <main>
