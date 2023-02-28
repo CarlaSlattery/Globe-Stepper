@@ -1,0 +1,39 @@
+nav {
+  display: flex;
+  gap: 16px;
+  justify-content: end;
+  margin: 0 auto;
+}
+
+.logo {
+  margin-right: auto;
+  padding: 20px;
+}
+nav a {
+  text-decoration: none;
+  background-color: var(--primary-green);
+  margin: 1em;
+  padding: 3px 10px;
+  font-size: 24px;
+  border-radius: 5px;
+}
+/*needs fixing - relying on click to change*/
+nav a:hover,
+nav a:focus {
+  cursor: pointer;
+  background-color: var(--primary-blue);
+  color: white;
+}
+
+/*not current working */
+@media (max-width: 675px) {
+  .nav {
+    flex-direction: column;
+  }
+  header {
+    text-align: center;
+  }
+  nav a {
+    flex-direction: column;
+  }
+}

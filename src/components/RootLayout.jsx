@@ -7,7 +7,7 @@ function RootLayout() {
     <div className="app-root-layout">
       <header>
         <nav>
-          <span>GlobeStepper</span>
+          <span className="logo">GlobeStepperLogo</span>
           <NavLink to="/" activeClassName="active">
             Challenges
           </NavLink>

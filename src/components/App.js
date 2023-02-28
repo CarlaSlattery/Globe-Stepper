@@ -14,6 +14,7 @@ import Login from "./Login";
 
 // Style imports
 import "../styles/App.css";
+import "../styles/navbar-roots.css";
 
 const router = createBrowserRouter(
   createRoutesFromElements(

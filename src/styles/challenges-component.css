@@ -1,0 +1,9 @@
+.challenges-container {
+  border: 2px solid var(--primary-blue);
+}
+
+.challenge-cards {
+  display: flex;
+  flex-direction: row;
+  max-width: 33.3%;
+}
