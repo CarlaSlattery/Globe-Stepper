@@ -1,0 +1,37 @@
+@import url("https://fonts.googleapis.com/css2?family=Genos:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&family=Raleway:ital,wght@0,200;0,300;0,400;0,600;0,700;1,400&display=swap");
+
+:root {
+  --primary-green: #72e780;
+  --primary-blue: #0f67ff;
+}
+
+body {
+  display: grid;
+  max-width: 90%;
+  margin: 0 auto;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  font-family: "Genos", sans-serif;
+  text-align: center;
+}
+
+h1 {
+  font-size: 56px;
+  color: var(--primary-blue);
+}
+
+h2 {
+  font-size: 46px;
+}
+
+h3 {
+  font-size: 36px;
+}
+
+h4 {
+  font-size: 24px;
+}

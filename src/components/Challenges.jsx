@@ -3,6 +3,9 @@ import React from "react";
 // Component import
 import ChallengeCard from "./ChallengeCards";
 
+// Styles imports
+import "../styles/challenge-card.css";
+
 function Challenges() {
   return (
     <div className="challenges-container">
