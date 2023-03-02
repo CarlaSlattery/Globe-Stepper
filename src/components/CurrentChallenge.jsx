@@ -10,7 +10,10 @@ function CurrentChallenge() {
   const [distance, setNewDistance] = useState("");
   return (
     <div className="challenge-container">
-      <div className="image-container">
+      <div className="current-challenge-header">
+        <h2>Your Current Challenge</h2>
+        <h3>(Challenge Name)</h3>
+        <img src="projectimageurl" alt="current-challenge" />
         <div className="progress-container">
           <h3>Progress Tracker</h3>
           <label htmlFor="progress percentage">
@@ -51,7 +54,7 @@ function CurrentChallenge() {
           </div>
         </div>
         <div className="completed-challenges">
-          <h3>Completed Challenges</h3>
+          <h3>Your Completed Challenges</h3>
           <ChallengeCard />
         </div>
       </div>
