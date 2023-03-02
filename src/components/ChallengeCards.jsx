@@ -1,12 +1,14 @@
+/* eslint-disable import/no-extraneous-dependencies */
 import React from "react";
 import PropTypes from "prop-types";
+
 import hadriansWallImg from "../assets/hadrians-wall.jpg";
 
-function ChallengeCard(props) {
-  const { challenges } = props;
+function ChallengeCard({ challenge }) {
   const handleJoinClick = (challengeBeingJoined) => {
     console.log(challengeBeingJoined);
-  }
+  };
+  console.log(challenge);
   return (
     <div className="card-container">
       <img
@@ -14,19 +16,16 @@ function ChallengeCard(props) {
         src={hadriansWallImg}
         alt="hadrians wall"
       />
-      <h3 className="card-title">Hadrians Wall</h3>
-      <p className="card-distances">117km / 73miles</p>
-      <p className="card-description">
-        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Facilis ex
-        accusantium enim deserunt sapiente. Natus est nemo et reiciendis! Soluta
-        quas facere sed repellendus magnam delectus velit voluptas veritatis
-        minus?
+      <h3 className="card-title">{challenge.title}</h3>
+      <p className="card-distances">
+        {challenge.distanceKM} / {challenge.distanceMi}
       </p>
+      <p className="card-description">{challenge.description}</p>
       <button
         className="challenge-select-btn"
         type="submit"
         onClick={() => {
-        handleJoinClick(challenge);
+          handleJoinClick(challenge);
         }}
       >
         Join The Challenge
@@ -35,8 +34,14 @@ function ChallengeCard(props) {
   );
 }
 
-ChallengeCard.PropTypes = {
-  challenge: PropTypes.instanceOf(Challenge).isRequired,
-}
+ChallengeCard.propTypes = {
+  challenge: PropTypes.shape({
+    id: PropTypes.number.isRequired,
+    title: PropTypes.string.isRequired,
+    distanceKM: PropTypes.number.isRequired,
+    distanceMi: PropTypes.number.isRequired,
+    description: PropTypes.string.isRequired,
+  }).isRequired,
+};
 
 export default ChallengeCard;

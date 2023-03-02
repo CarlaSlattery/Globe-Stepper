@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 
 // Component import
-import ChallengeCard from "./ChallengeCards";
 
 // Imported styling
 import "../styles/current-challenge.css";
@@ -55,7 +54,6 @@ function CurrentChallenge() {
         </div>
         <div className="completed-challenges">
           <h3>Your Completed Challenges</h3>
-          <ChallengeCard />
         </div>
       </div>
     </div>
