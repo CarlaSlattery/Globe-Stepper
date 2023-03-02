@@ -1,7 +1,12 @@
 import React from "react";
+import PropTypes from "prop-types";
 import hadriansWallImg from "../assets/hadrians-wall.jpg";
 
-function ChallengeCard() {
+function ChallengeCard(props) {
+  const { challenges } = props;
+  const handleJoinClick = (challengeBeingJoined) => {
+    console.log(challengeBeingJoined);
+  }
   return (
     <div className="card-container">
       <img
@@ -17,11 +22,21 @@ function ChallengeCard() {
         quas facere sed repellendus magnam delectus velit voluptas veritatis
         minus?
       </p>
-      <button className="challenge-select-btn" type="submit">
+      <button
+        className="challenge-select-btn"
+        type="submit"
+        onClick={() => {
+        handleJoinClick(challenge);
+        }}
+      >
         Join The Challenge
       </button>
     </div>
   );
+}
+
+ChallengeCard.PropTypes = {
+  challenge: PropTypes.instanceOf(Challenge).isRequired,
 }
 
 export default ChallengeCard;

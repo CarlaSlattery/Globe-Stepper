@@ -49,7 +49,7 @@ function CurrentChallenge() {
           <div className="challenge-statistics">
             <span>Distance Travelled:</span>
             <span>76km</span>
-            <span>Distance Remaining:</span>
+            <span>Distance Remaining: </span>
             <span>41km</span>
           </div>
         </div>
