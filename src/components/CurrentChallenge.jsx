@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 
 // Component import
-import ChallengeCard from "./ChallengeCards";
 
 // Imported styling
 import "../styles/current-challenge.css";
@@ -10,7 +9,10 @@ function CurrentChallenge() {
   const [distance, setNewDistance] = useState("");
   return (
     <div className="challenge-container">
-      <div className="image-container">
+      <div className="current-challenge-header">
+        <h2>Your Current Challenge</h2>
+        <h3>(Challenge Name)</h3>
+        <img src="projectimageurl" alt="current-challenge" />
         <div className="progress-container">
           <h3>Progress Tracker</h3>
           <label htmlFor="progress percentage">
@@ -46,13 +48,12 @@ function CurrentChallenge() {
           <div className="challenge-statistics">
             <span>Distance Travelled:</span>
             <span>76km</span>
-            <span>Distance Remaining:</span>
+            <span>Distance Remaining: </span>
             <span>41km</span>
           </div>
         </div>
         <div className="completed-challenges">
-          <h3>Completed Challenges</h3>
-          <ChallengeCard />
+          <h3>Your Completed Challenges</h3>
         </div>
       </div>
     </div>

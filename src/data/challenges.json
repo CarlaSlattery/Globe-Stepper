@@ -1,0 +1,25 @@
+{
+  "challenges": [
+    {
+      "id": 1,
+      "title": "Hadrians Wall",
+      "distanceKM": 117,
+      "distanceMi": 73,
+      "description": "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Architecto voluptas quis tempore facere libero nisi maxime dignissimos similiqueexercitationem odio ducimus, totam voluptatem inventore ab quia quos perferendis, optio saepe"
+    },
+    {
+      "id": 2,
+      "title": "Marathon to Athens",
+      "distanceKM": 42,
+      "distanceMi": 26,
+      "description": "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Architecto voluptas quis tempore facere libero nisi maxime dignissimos similiqueexercitationem odio ducimus, totam voluptatem inventore ab quia quos perferendis, optio saepe"
+    },
+    {
+      "id": 3,
+      "title": "Berlin Wall",
+      "distanceKM": 155,
+      "distanceMi": 96,
+      "description": "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Architecto voluptas quis tempore facere libero nisi maxime dignissimos similiqueexercitationem odio ducimus, totam voluptatem inventore ab quia quos perferendis, optio saepe"
+    }
+  ]
+}
