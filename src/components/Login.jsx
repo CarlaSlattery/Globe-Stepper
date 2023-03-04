@@ -1,7 +1,11 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 
 // component imports
 import CurrentChallenge from "./CurrentChallenge";
+
+// style import
+import "../styles/Login.css";
 
 function DisplayLoggedOut() {
   return (
@@ -21,6 +25,12 @@ function DisplayLoggedOut() {
           <input type="password" placeholder="enter password" />
         </label>
       </form>
+      <div className="register-prompt">
+        <h3>Not currently a GlobeStepper?</h3>
+        <h4>
+          Then come and join us <Link to="/register">here.</Link>
+        </h4>
+      </div>
     </div>
   );
 }
