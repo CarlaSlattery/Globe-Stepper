@@ -15,12 +15,15 @@ import Login from "./Login";
 // Style imports
 import "../styles/App.css";
 import "../styles/navbar-roots.css";
+import NotFound from "./NotFound";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
     <Route path="/" element={<RootLayout />}>
       <Route index element={<Home />} />
       <Route path="login" element={<Login />} />
+
+      <Route path="*" element={<NotFound />} />
     </Route>
   )
 );
