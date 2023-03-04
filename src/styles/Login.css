@@ -1,0 +1,7 @@
+.login {
+  border: 2px solid var(--primary-blue);
+
+  margin: 0 auto;
+  margin-top: 100px;
+  width: 70%;
+}
