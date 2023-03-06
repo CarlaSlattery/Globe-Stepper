@@ -47,6 +47,16 @@ function Register() {
             placeholder="enter password"
           />
         </label>
+        <label htmlFor="password-confirmation">
+          Confirm Password:
+          <input
+            type="password"
+            name="password"
+            value={password}
+            onChange={(event) => setPassword(event.target.value)}
+            placeholder="enter password"
+          />
+        </label>
         <button id="register" className="register" type="submit">
           Register Me!
         </button>
