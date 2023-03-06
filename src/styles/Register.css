@@ -1,0 +1,61 @@
+.register-header {
+  margin-top: 4em;
+  margin-bottom: 2em;
+}
+
+.register-form {
+  display: flex;
+  flex-direction: column;
+
+  height: 50vh;
+  align-items: center;
+  justify-content: center;
+}
+
+form {
+  display: flex;
+  margin-top: 20px;
+  flex-direction: column;
+  align-items: center;
+  justify-items: flex-start;
+  background-color: var(--primary-blue);
+  border-radius: 5px;
+}
+
+label {
+  padding: 5px 15px;
+  width: 100%;
+  color: white;
+  font-weight: 600;
+}
+
+label:first-of-type {
+  padding-top: 20px;
+}
+
+input {
+  width: 100%;
+  height: 40px;
+  margin-top: 0.5em;
+  padding: 1em;
+  border-radius: 5px;
+  font-size: 18px;
+}
+
+button {
+  width: 200px;
+  height: 40px;
+  margin-top: 1.5em;
+  margin-bottom: 1em;
+  background-color: var(--primary-green);
+  text-align: center;
+  font-size: 18px;
+  border-radius: 5px;
+}
+
+button:hover {
+  background-color: white;
+  color: var(--primary-blue);
+  cursor: pointer;
+  transition: 250ms;
+}

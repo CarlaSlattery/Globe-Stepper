@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import "../styles/Register.css";
 
 function Register() {
   const [email, setEmail] = useState("");
@@ -11,8 +12,10 @@ function Register() {
   };
 
   return (
-    <div>
-      <h3>Sign up to be a GlobeStepper!</h3>
+    <div className="register-form">
+      <div className="register-header">
+        <h3>Sign up to start a challenge!</h3>
+      </div>
       <form onSubmit={handleRegister} className="login">
         <label htmlFor="email">
           Email:
@@ -44,7 +47,7 @@ function Register() {
             placeholder="enter password"
           />
         </label>
-        <button id="register" type="submit">
+        <button id="register" className="register" type="submit">
           Register Me!
         </button>
       </form>
