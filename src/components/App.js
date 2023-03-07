@@ -17,6 +17,7 @@ import NotFound from "./NotFound";
 // Style imports
 import "../styles/App.css";
 import "../styles/navbar-roots.css";
+import "../styles/home.css";
 
 const router = createBrowserRouter(
   createRoutesFromElements(

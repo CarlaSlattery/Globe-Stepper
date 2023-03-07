@@ -2,8 +2,6 @@
 import React from "react";
 import PropTypes from "prop-types";
 
-import hadriansWallImg from "../assets/hadrians-wall.jpg";
-
 function ChallengeCard({ challenge }) {
   const handleJoinClick = (challengeBeingJoined) => {
     console.log(challengeBeingJoined);
@@ -13,12 +11,12 @@ function ChallengeCard({ challenge }) {
     <div className="card-container">
       <img
         className="challenge-card-img"
-        src={hadriansWallImg}
-        alt="hadrians wall"
+        src={challenge.imageUrl}
+        alt={challenge.title}
       />
       <h3 className="card-title">{challenge.title}</h3>
       <p className="card-distances">
-        {challenge.distanceKM} / {challenge.distanceMi}
+        {challenge.distanceKM} Km / {challenge.distanceMi} Miles
       </p>
       <p className="card-description">{challenge.description}</p>
       <button
@@ -37,6 +35,7 @@ function ChallengeCard({ challenge }) {
 ChallengeCard.propTypes = {
   challenge: PropTypes.shape({
     id: PropTypes.number.isRequired,
+    imageUrl: PropTypes.string.isRequired,
     title: PropTypes.string.isRequired,
     distanceKM: PropTypes.number.isRequired,
     distanceMi: PropTypes.number.isRequired,

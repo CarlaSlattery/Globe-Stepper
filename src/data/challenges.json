@@ -2,6 +2,7 @@
   "challenges": [
     {
       "id": 1,
+      "imageUrl": "../assets/hadrians-wall.jpg",
       "title": "Hadrians Wall",
       "distanceKM": 117,
       "distanceMi": 73,
@@ -9,6 +10,7 @@
     },
     {
       "id": 2,
+      "imageUrl": "../assets/athens.jpg",
       "title": "Marathon to Athens",
       "distanceKM": 42,
       "distanceMi": 26,
@@ -16,6 +18,7 @@
     },
     {
       "id": 3,
+      "imageUrl": "../assets/berlin-wall.jpg",
       "title": "Berlin Wall",
       "distanceKM": 155,
       "distanceMi": 96,
