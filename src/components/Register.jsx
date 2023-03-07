@@ -1,14 +1,28 @@
 import React, { useState } from "react";
 import "../styles/Register.css";
+import axios from "axios";
+import Alert from "./Alert";
 
 function Register() {
+  const [alert, setAlert] = useState({ message: "", isSuccess: false });
+
   const [email, setEmail] = useState("");
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
 
   const handleRegister = (event) => {
     event.preventDefault();
-    console.log(email, username, password);
+
+    setAlert({ message: "", isSuccess: false });
+
+    axios
+      .post("http://localhost:4000/users", { email, username, password })
+      .then(() => {
+        setAlert({ message: "registered", isSuccess: true });
+      })
+      .catch(() => {
+        setAlert({ message: "not registered", isSuccess: false });
+      });
   };
 
   return (
@@ -17,6 +31,7 @@ function Register() {
         <h3>Sign up to start a challenge!</h3>
       </div>
       <form onSubmit={handleRegister} className="login">
+        <Alert message={alert.message} success={alert.isSuccess} />
         <label htmlFor="email">
           Email:
           <input
