@@ -1,70 +1,83 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { signInWithEmailAndPassword } from "firebase/auth";
+import { NavLink, useNavigate } from "react-router-dom";
+import { auth } from "../firebase";
 
 // component imports
-import CurrentChallenge from "./CurrentChallenge";
+// import CurrentChallenge from "./CurrentChallenge";
 
 // style import
 import "../styles/Login.css";
 
-function DisplayLoggedOut() {
-  return (
-    <div className="login-container">
-      <h2>Please login</h2>
-      <form className="login">
-        <label htmlFor="email">
-          Email:
-          <input type="email" placeholder="Enter your email" />
-        </label>
-        <label htmlFor="username">
-          Username:
-          <input type="text" placeholder="username" />
-        </label>
-        <label htmlFor="password">
-          Password:
-          <input type="password" placeholder="enter password" />
-        </label>
-      </form>
-      <div className="register-prompt">
-        <h3>Not currently a GlobeStepper?</h3>
-        <h4>
-          Then come and join us <Link to="/register">here.</Link>
-        </h4>
-      </div>
-    </div>
-  );
-}
+function Login() {
+  const navigate = useNavigate();
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
 
-function DisplayLoggedIn() {
-  return (
-    <>
-      <h2 className="logged-in-msg">You are logged in</h2>
-      <CurrentChallenge />
-    </>
-  );
-}
-
-function RenderLoginForm() {
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
-  const handleLoginButton = () => {
-    if (isLoggedIn) {
-      setIsLoggedIn(false);
-    } else {
-      setIsLoggedIn(true);
-    }
+  const onLogin = (e) => {
+    e.preventDefault();
+    signInWithEmailAndPassword(auth, email, password)
+      .then((userCredential) => {
+        const { user } = userCredential;
+        navigate("/currentChallenge");
+        console.log(user);
+      })
+      .catch((error) => {
+        const errorCode = error.code;
+        const errorMessage = error.message;
+        console.log(errorCode, errorMessage);
+      });
   };
+
   return (
-    <div>
-      {isLoggedIn === false ? <DisplayLoggedOut /> : <DisplayLoggedIn />}
-      <button
-        type="submit"
-        onClick={handleLoginButton}
-        className="login-button"
-      >
-        {isLoggedIn === false ? "Login" : "Logout"}
-      </button>
-    </div>
+    <main>
+      <section>
+        <div>
+          <h2>Please login</h2>
+          <form className="login">
+            <div>
+              <label htmlFor="email-address">
+                Email address
+                <input
+                  id="email-address"
+                  name="email"
+                  type="email"
+                  required
+                  placeholder="Email address"
+                  onChange={(e) => setEmail(e.target.value)}
+                />
+              </label>
+            </div>
+
+            <div>
+              <label htmlFor="password">
+                Password
+                <input
+                  id="password"
+                  name="password"
+                  type="password"
+                  required
+                  placeholder="Password"
+                  onChange={(e) => setPassword(e.target.value)}
+                />
+              </label>
+            </div>
+
+            <div>
+              <button type="submit" onClick={onLogin}>
+                Login
+              </button>
+            </div>
+          </form>
+
+          <h3 className="register-prompt">No currently a GlobeStepper? </h3>
+          <h4 className="register-prompt-link">
+            Then come and join us <NavLink to="/register">here.</NavLink>
+          </h4>
+        </div>
+      </section>
+    </main>
   );
 }
 
-export default RenderLoginForm;
+export default Login;

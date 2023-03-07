@@ -1,0 +1,44 @@
+.form {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.form-body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 10px;
+  background-color: var(--almost-white);
+  max-width: 375px;
+  width: 97%;
+}
+
+.form-body > * {
+    padding: 5px;
+}
+
+.form-label {
+    display: block;
+    margin: 5px 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+}
+
+.form-input {
+    width: 60%;
+    margin-left: 5px;
+}
+
+.register-button {
+    display: flex;
+    flex-direction: column;
+}
+
+.login, .login-link {
+    display: flex;
+    flex-direction: column;
+}

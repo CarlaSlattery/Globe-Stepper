@@ -17,6 +17,7 @@ import NotFound from "./NotFound";
 // Style imports
 import "../styles/App.css";
 import "../styles/navbar-roots.css";
+import CurrentChallenge from "./CurrentChallenge";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -25,6 +26,7 @@ const router = createBrowserRouter(
       <Route path="login" element={<Login />} />
       <Route path="register" element={<Register />} />
       <Route path="*" element={<NotFound />} />
+      <Route path="currentChallenge" element={<CurrentChallenge />} />
     </Route>
   )
 );

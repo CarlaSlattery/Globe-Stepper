@@ -1,54 +1,77 @@
 import React, { useState } from "react";
+import { NavLink, useNavigate } from "react-router-dom";
+import { createUserWithEmailAndPassword } from "firebase/auth";
+import { auth } from "../firebase";
+
+import "../styles/Register.css";
 
 function Register() {
+  const navigate = useNavigate();
+
   const [email, setEmail] = useState("");
-  const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
 
-  const handleRegister = (event) => {
-    event.preventDefault();
-    console.log(email, username, password);
+  const onSubmit = async (e) => {
+    e.preventDefault();
+
+    await createUserWithEmailAndPassword(auth, email, password)
+      .then((userCredential) => {
+        const user = userCredential;
+        console.log(user);
+        navigate("/login");
+      })
+      .catch((error) => {
+        const errorCode = error.code;
+        const errorMessage = error.message;
+        console.log(errorCode, errorMessage);
+      });
   };
 
   return (
-    <div>
-      <h3>Sign up to be a GlobeStepper!</h3>
-      <form onSubmit={handleRegister} className="login">
-        <label htmlFor="email">
-          Email:
-          <input
-            type="email"
-            name="email"
-            value={email}
-            onChange={(event) => setEmail(event.target.value)}
-            placeholder="Enter your email"
-          />
-        </label>
-        <label htmlFor="username">
-          Username:
-          <input
-            type="text"
-            name="username"
-            value={username}
-            onChange={(event) => setUsername(event.target.value)}
-            placeholder="username"
-          />
-        </label>
-        <label htmlFor="password">
-          Password:
-          <input
-            type="password"
-            name="password"
-            value={password}
-            onChange={(event) => setPassword(event.target.value)}
-            placeholder="enter password"
-          />
-        </label>
-        <button id="register" type="submit">
-          Register Me!
-        </button>
-      </form>
-    </div>
+    <main>
+      <section>
+        <div className="form">
+          <div className="header">
+            <h1>Register to be a GlobeStepper</h1>
+            <form className="form__body">
+              <div>
+                <label htmlFor="email-address">
+                  Email address
+                  <input
+                    type="email"
+                    label="Email address"
+                    value={email}
+                    onChange={(e) => setEmail(e.target.value)}
+                    required
+                    placeholder="Email address"
+                  />
+                </label>
+              </div>
+              <div>
+                <label htmlFor="password">
+                  Password
+                  <input
+                    type="password"
+                    label="Create password"
+                    value={password}
+                    onChange={(e) => setPassword(e.target.value)}
+                    required
+                    placeholder="Password"
+                  />
+                </label>
+              </div>
+              <button type="submit" onClick={onSubmit}>
+                Sign up
+              </button>
+            </form>
+            <p>
+              Already have an account?
+              <NavLink to="/login">Sign in</NavLink>
+            </p>
+          </div>
+        </div>
+      </section>
+    </main>
   );
 }
 
