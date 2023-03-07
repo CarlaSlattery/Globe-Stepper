@@ -2,7 +2,7 @@ import React from "react";
 // eslint-disable-next-line import/no-extraneous-dependencies
 import { NavLink, Outlet } from "react-router-dom";
 
-import globeStepper from "../assets/GlobeStepper.jpg";
+import globeStepper from "../assets/GlobeStepper.png";
 
 function RootLayout() {
   return (

@@ -65,7 +65,7 @@ function Register() {
               </button>
             </form>
             <p>
-              Already have an account?
+              Already a GlobeStepper?
               <NavLink to="/login">Sign in</NavLink>
             </p>
           </div>
