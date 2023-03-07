@@ -26,6 +26,7 @@ h1 {
 
 h2 {
   font-size: 46px;
+  color: var(--primary-blue);
 }
 
 h3 {

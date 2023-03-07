@@ -58,7 +58,7 @@ function Register() {
           />
         </label>
         <button id="register" className="register" type="submit">
-          Register Me!
+          Register Me
         </button>
       </form>
     </div>
