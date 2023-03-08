@@ -2,27 +2,27 @@
   "challenges": [
     {
       "id": 1,
-      "imageUrl": "../assets/hadrians-wall.jpg",
+      "imageUrl": "../hadrians-wall.jpg",
       "title": "Hadrians Wall",
       "distanceKM": 117,
       "distanceMi": 73,
-      "description": "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Architecto voluptas quis tempore facere libero nisi maxime dignissimos similiqueexercitationem odio ducimus, totam voluptatem inventore ab quia quos perferendis, optio saepe"
+      "description": "A UNESCO world heritage site, Hadrians wall is a 73 mile path across northern England."
     },
     {
       "id": 2,
-      "imageUrl": "../assets/athens.jpg",
+      "imageUrl": "../athens.jpg",
       "title": "Marathon to Athens",
       "distanceKM": 42,
       "distanceMi": 26,
-      "description": "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Architecto voluptas quis tempore facere libero nisi maxime dignissimos similiqueexercitationem odio ducimus, totam voluptatem inventore ab quia quos perferendis, optio saepe"
+      "description": "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Architecto voluptas quis tempore facere libero nisi maxime dignissimos similiqueexercitationem odio ducimus."
     },
     {
       "id": 3,
-      "imageUrl": "../assets/berlin-wall.jpg",
+      "imageUrl": "../berlin-wall.jpg",
       "title": "Berlin Wall",
       "distanceKM": 155,
       "distanceMi": 96,
-      "description": "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Architecto voluptas quis tempore facere libero nisi maxime dignissimos similiqueexercitationem odio ducimus, totam voluptatem inventore ab quia quos perferendis, optio saepe"
+      "description": "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Architecto voluptas quis tempore facere libero nisi maxime dignissimos similiqueexercitationem odio ducimus."
     }
   ]
 }

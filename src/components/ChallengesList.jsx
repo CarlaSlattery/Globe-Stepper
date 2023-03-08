@@ -10,8 +10,6 @@ import ChallengeCard from "./ChallengeCards";
 import "../styles/challenges-list.css";
 import "../styles/challenge-card.css";
 
-// template of list component - need to import relevant prop containing challenge objects from database
-
 function ChallengesList({ challenges }) {
   console.log(challenges.challenges);
   return (
