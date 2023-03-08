@@ -43,7 +43,10 @@ function RenderLoginForm() {
       <div className="register-prompt">
         <h3>Not currently a GlobeStepper?</h3>
         <h4>
-          Then come and join us <Link to="/register">here.</Link>
+          Then come and join us{" "}
+          <Link to="/register" className="register-link">
+            here.
+          </Link>
         </h4>
       </div>
     </>
