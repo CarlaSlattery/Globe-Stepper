@@ -5,9 +5,13 @@
   --primary-blue: #0f67ff;
 }
 
-body {
-  display: grid;
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
 
+body {
   margin: 0 auto;
 }
 

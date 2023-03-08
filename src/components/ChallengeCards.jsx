@@ -7,27 +7,32 @@ function ChallengeCard({ challenge }) {
     console.log(challengeBeingJoined);
   };
   console.log(challenge);
+
   return (
     <div className="card-container">
-      <img
-        className="challenge-card-img"
-        src={challenge.imageUrl}
-        alt={challenge.title}
-      />
-      <h3 className="card-title">{challenge.title}</h3>
-      <p className="card-distances">
-        {challenge.distanceKM} Km / {challenge.distanceMi} Miles
-      </p>
-      <p className="card-description">{challenge.description}</p>
-      <button
-        className="challenge-select-btn"
-        type="submit"
-        onClick={() => {
-          handleJoinClick(challenge);
-        }}
-      >
-        Join The Challenge
-      </button>
+      <div className="card-items">
+        <img
+          className="challenge-card-img"
+          src={challenge.imageUrl}
+          alt={challenge.title}
+        />
+        <div className="card-content">
+          <h3 className="card-title">{challenge.title}</h3>
+          <p className="card-distances">
+            {challenge.distanceKM} Km / {challenge.distanceMi} Miles
+          </p>
+          <p className="card-description">{challenge.description}</p>
+          <button
+            className="challenge-select-btn"
+            type="submit"
+            onClick={() => {
+              handleJoinClick(challenge);
+            }}
+          >
+            Join The Challenge
+          </button>
+        </div>
+      </div>
     </div>
   );
 }
