@@ -29,7 +29,11 @@ function RenderLoginForm() {
           </label>
           <label htmlFor="password">
             Password:
-            <input type="password" placeholder="enter password" />
+            <input
+              type="password"
+              placeholder="enter password"
+              autoComplete="on"
+            />
           </label>
           <button
             type="submit"
