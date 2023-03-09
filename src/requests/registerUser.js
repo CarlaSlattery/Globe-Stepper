@@ -2,7 +2,7 @@ import axios from "axios";
 
 const registerUser = (fields, setAlert) => {
   return axios
-    .post("http://localhost:4000/users", fields)
+    .post("http://localhost:4000/auth/register", fields)
     .then(() => {
       setAlert({
         message: "Registration successful!",
