@@ -1,28 +1,34 @@
 import React, { useState } from "react";
 import "../styles/Register.css";
-import axios from "axios";
 import Alert from "./Alert";
+import registerUser from "../requests/registerUser";
 
 function Register() {
-  const [alert, setAlert] = useState({ message: "", isSuccess: false });
+  const initialState = {
+    fields: {
+      email: "",
+      username: "",
+      password: "",
+    },
+    alert: {
+      message: "",
+      success: false,
+    },
+  };
 
-  const [email, setEmail] = useState("");
-  const [username, setUsername] = useState("");
-  const [password, setPassword] = useState("");
+  const [fields, setFields] = useState(initialState.fields);
+
+  const [alert, setAlert] = useState(initialState.alert);
 
   const handleRegister = (event) => {
     event.preventDefault();
+    registerUser(fields, setAlert);
+    setAlert({ message: "", success: false });
+  };
 
-    setAlert({ message: "", isSuccess: false });
-
-    axios
-      .post("http://localhost:4000/users", { email, username, password })
-      .then(() => {
-        setAlert({ message: "registered", isSuccess: true });
-      })
-      .catch(() => {
-        setAlert({ message: "not registered", isSuccess: false });
-      });
+  const handleFieldChange = (event) => {
+    event.preventDefault();
+    setFields({ ...fields, [event.target.name]: event.target.value });
   };
 
   return (
@@ -37,8 +43,8 @@ function Register() {
           <input
             type="email"
             name="email"
-            value={email}
-            onChange={(event) => setEmail(event.target.value)}
+            value={fields.email}
+            onChange={handleFieldChange}
             placeholder="Enter your email"
           />
         </label>
@@ -47,8 +53,8 @@ function Register() {
           <input
             type="text"
             name="username"
-            value={username}
-            onChange={(event) => setUsername(event.target.value)}
+            value={fields.username}
+            onChange={handleFieldChange}
             placeholder="username"
           />
         </label>
@@ -57,8 +63,8 @@ function Register() {
           <input
             type="password"
             name="password"
-            value={password}
-            onChange={(event) => setPassword(event.target.value)}
+            value={fields.password}
+            onChange={handleFieldChange}
             placeholder="enter password"
           />
         </label>
@@ -67,8 +73,8 @@ function Register() {
           <input
             type="password"
             name="password"
-            value={password}
-            onChange={(event) => setPassword(event.target.value)}
+            value={fields.password}
+            onChange={handleFieldChange}
             placeholder="enter password"
           />
         </label>
