@@ -11,7 +11,7 @@ import {
 import RootLayout from "./RootLayout";
 import Home from "./Home";
 import Login from "./Login";
-import Register from "./Register";
+import SignUp from "./SignUp";
 import NotFound from "./NotFound";
 
 // Style imports
@@ -24,7 +24,7 @@ const router = createBrowserRouter(
     <Route path="/" element={<RootLayout />}>
       <Route index element={<Home />} />
       <Route path="login" element={<Login />} />
-      <Route path="register" element={<Register />} />
+      <Route path="register" element={<SignUp />} />
       <Route path="*" element={<NotFound />} />
     </Route>
   )
