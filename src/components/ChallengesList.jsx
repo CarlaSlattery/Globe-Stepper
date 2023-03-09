@@ -11,7 +11,9 @@ import "../styles/challenges-list.css";
 import "../styles/challenge-card.css";
 
 function ChallengesList({ challenges }) {
-  console.log(challenges.challenges);
+  const chooseChallenge = ({ challenge }) => {
+    console.log("challenge selected: ", challenge);
+  };
   return (
     <>
       <h2>Choose a Challenge!</h2>
@@ -19,7 +21,7 @@ function ChallengesList({ challenges }) {
         {challenges.map((challenge) => {
           return (
             <div key={challenge.id} className="challenge-cards">
-              <ChallengeCard challenge={challenge} />
+              <ChallengeCard onSubmit={chooseChallenge} challenge={challenge} />
             </div>
           );
         })}

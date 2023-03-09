@@ -2,12 +2,34 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 
 // component imports
+import Alert from "./Alert";
+import loginUser from "../requests/loginUser";
 
 // style import
 import "../styles/Login.css";
 
-function RenderLoginForm() {
+function UserLogin() {
+  const initialState = {
+    fields: {
+      email: "",
+      password: "",
+    },
+    alert: {
+      message: "",
+      success: false,
+    },
+  };
+
   const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [fields, setFields] = useState(initialState.fields);
+  const [alert, setAlert] = useState(initialState.alert);
+
+  const handleUserLogin = (event) => {
+    event.preventDefault();
+    loginUser(fields, setAlert);
+    setAlert({ message: "", success: false });
+  };
+
   const handleLoginButton = () => {
     if (isLoggedIn) {
       setIsLoggedIn(false);
@@ -15,22 +37,37 @@ function RenderLoginForm() {
       setIsLoggedIn(true);
     }
   };
+
+  const handleFieldChange = (event) => {
+    event.preventDefault();
+    setFields({ ...fields, [event.target.name]: event.target.value });
+  };
+
   return (
     <>
       <div className="login-container">
         <div className="login-header">
           <h2>Please login</h2>
         </div>
-        <form className="login-form">
+        <form onSubmit={handleUserLogin} className="login-form">
+          <Alert message={alert.message} success={alert.isSuccess} />
           <label htmlFor="email">
-            {" "}
             Email:
-            <input type="email" placeholder="Enter your email" />
+            <input
+              type="email"
+              name="email"
+              value={fields.email}
+              onChange={handleFieldChange}
+              placeholder="Enter your email"
+            />
           </label>
           <label htmlFor="password">
             Password:
             <input
               type="password"
+              name="password"
+              value={fields.password}
+              onChange={handleFieldChange}
               placeholder="enter password"
               autoComplete="on"
             />
@@ -57,4 +94,4 @@ function RenderLoginForm() {
   );
 }
 
-export default RenderLoginForm;
+export default UserLogin;
