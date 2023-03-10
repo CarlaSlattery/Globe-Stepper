@@ -11,10 +11,9 @@
 
 .navbar-logo {
   margin-right: auto;
-  margin-top: 8em;
   margin-left: 2em;
   padding: 0;
-  height: 200px;
+  height: 50px;
   z-index: 2;
 }
 
