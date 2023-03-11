@@ -2,7 +2,7 @@ import axios from "axios";
 
 const selectChallenge = (challenge, setAlert) => {
   return axios
-    .post("http://localhost:4000/challenges", challenge)
+    .post("http://localhost:4000/users/challenges", challenge)
     .then(() => {
       setAlert({
         message: "Challenge selected!",
