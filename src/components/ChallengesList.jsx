@@ -9,9 +9,11 @@ import ChallengeCard from "./ChallengeCards";
 // Styles imports
 import "../styles/challenges-list.css";
 import "../styles/challenge-card.css";
-import JoinChallenge from "./JoinChallenge";
 
 function ChallengesList({ challenges }) {
+  const chooseChallenge = ({ challenge }) => {
+    console.log("challenge selected: ", challenge);
+  };
   return (
     <>
       <h2>Choose a Challenge!</h2>
@@ -19,7 +21,7 @@ function ChallengesList({ challenges }) {
         {challenges.map((challenge) => {
           return (
             <div key={challenge.id} className="challenge-cards">
-              <ChallengeCard onSubmit={JoinChallenge} challenge={challenge} />
+              <ChallengeCard onSubmit={chooseChallenge} challenge={challenge} />
             </div>
           );
         })}
