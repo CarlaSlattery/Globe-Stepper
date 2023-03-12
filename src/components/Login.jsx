@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-
+import { useLogin } from "../hooks/useLogin";
 // component imports
 import Alert from "./Alert";
-import loginUser from "../requests/loginUser";
+// import loginUser from "../requests/loginUser";
 
 // style import
 import "../styles/Login.css";
@@ -20,27 +20,21 @@ function UserLogin() {
     },
   };
 
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [fields, setFields] = useState(initialState.fields);
   const [alert, setAlert] = useState(initialState.alert);
-
-  const handleUserLogin = (event) => {
-    event.preventDefault();
-    loginUser(fields, setAlert);
-    setAlert({ message: "", success: false });
-  };
-
-  const handleLoginButton = () => {
-    if (isLoggedIn) {
-      setIsLoggedIn(false);
-    } else {
-      setIsLoggedIn(true);
-    }
-  };
+  const { login, error, isLoading } = useLogin();
 
   const handleFieldChange = (event) => {
     event.preventDefault();
     setFields({ ...fields, [event.target.name]: event.target.value });
+  };
+
+  const handleUserLogin = async (event) => {
+    event.preventDefault();
+    setFields({ ...fields });
+    setAlert({ message: "", success: false });
+
+    await login({ ...fields });
   };
 
   return (
@@ -72,12 +66,10 @@ function UserLogin() {
               autoComplete="on"
             />
           </label>
-          <button
-            type="submit"
-            onClick={handleLoginButton}
-            className="login-button"
-          >
-            {isLoggedIn === false ? "Login" : "Logout"}
+          {alert.message && <span className="form-error">{alert.message}</span>}
+          <button type="submit" disabled={isLoading} className="login-button">
+            {error && <div className="error">{error}</div>}
+            Login
           </button>
         </form>
       </div>
