@@ -1,10 +1,13 @@
 /* eslint-disable import/no-extraneous-dependencies */
 import React from "react";
 import PropTypes from "prop-types";
+import selectChallenge from "../requests/selectChallenge";
 
 function ChallengeCard({ challenge }) {
-  const handleJoinClick = (challengeBeingJoined) => {
-    console.log(challengeBeingJoined);
+  const handleJoinClick = (event) => {
+    event.preventDefault();
+    selectChallenge({ challenge });
+    console.log(event);
   };
   console.log(challenge);
 
@@ -25,9 +28,7 @@ function ChallengeCard({ challenge }) {
           <button
             className="challenge-select-btn"
             type="submit"
-            onClick={() => {
-              handleJoinClick(challenge);
-            }}
+            onClick={handleJoinClick}
           >
             Join The Challenge
           </button>
