@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const loginUser = (fields, setAlert) => {
+function loginUser(fields, setAlert) {
   return axios
     .post("http://localhost:4000/auth/signin", fields)
     .then(() => {
@@ -15,6 +15,6 @@ const loginUser = (fields, setAlert) => {
         success: false,
       });
     });
-};
+}
 
 export default loginUser;

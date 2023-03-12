@@ -13,6 +13,7 @@ import Home from "./Home";
 import Login from "./Login";
 import Register from "./Register";
 import NotFound from "./NotFound";
+import { AuthContext, authReducer, initialState } from "../context/AuthContext";
 
 // Style imports
 import "../styles/App.css";
@@ -31,7 +32,14 @@ const router = createBrowserRouter(
 );
 
 function App() {
-  return <RouterProvider router={router} />;
+  const [state, dispatch] = React.useReducer(authReducer, initialState);
+  return (
+    // check the below code - error warning of multiple re-renders
+    // eslint-disable-next-line react/jsx-no-constructed-context-values
+    <AuthContext.Provider value={{ state, dispatch }}>
+      <RouterProvider router={router} />;
+    </AuthContext.Provider>
+  );
 }
 
 export default App;
