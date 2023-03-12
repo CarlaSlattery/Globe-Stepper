@@ -28,9 +28,7 @@ function ChallengeCard({ challenge }) {
           <button
             className="challenge-select-btn"
             type="submit"
-            onClick={() => {
-              handleJoinClick(challenge);
-            }}
+            onClick={handleJoinClick}
           >
             Join The Challenge
           </button>

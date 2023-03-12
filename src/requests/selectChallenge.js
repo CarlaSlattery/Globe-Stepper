@@ -1,20 +1,7 @@
 import axios from "axios";
 
-const selectChallenge = (challenge, setAlert) => {
-  return axios
-    .post("http://localhost:4000/users/challenges", challenge)
-    .then(() => {
-      setAlert({
-        message: "Challenge selected!",
-        success: true,
-      });
-    })
-    .catch(() => {
-      setAlert({
-        message: "Server error - please try again later.",
-        success: false,
-      });
-    });
+const selectChallenge = (challenge) => {
+  return axios.post("http://localhost:4000/challenges", challenge);
 };
 
 export default selectChallenge;
