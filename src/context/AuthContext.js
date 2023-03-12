@@ -10,13 +10,13 @@ export const initialState = {
 export const authReducer = (state, action) => {
   switch (action.type) {
     case "LOGIN":
-      localStorage.setItem("user", JSON.stringify(action.payload.user));
-      localStorage.setItem("token", JSON.stringify(action.payload.token));
+      localStorage.setItem("user", JSON.stringify(action.payload.id));
+      localStorage.setItem("token", JSON.stringify(action.payload.accessToken));
       return {
         ...state,
         isAuthenticated: true,
-        user: action.payload.user,
-        token: action.payload.token,
+        user: action.payload.id,
+        token: action.payload.accessToken,
       };
     case "LOGOUT":
       localStorage.clear();
