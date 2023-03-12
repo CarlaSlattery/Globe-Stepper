@@ -16,14 +16,11 @@ function Home() {
         <h4>Where will you walk?</h4>
         <div className="welcome-container">
           <p>
-            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Architecto
-            voluptas quis tempore facere libero nisi maxime dignissimos
-            similique exercitationem odio ducimus, totam voluptatem inventore ab
-            quia quos, perferendis, optio saepe. Lorem ipsum, dolor sit amet
-            consectetur adipisicing elit. Architecto voluptas quis tempore
-            facere libero nisi maxime dignissimos similique exercitationem odio
-            ducimus, totam voluptatem inventore ab quia quos, perferendis, optio
-            saepe.
+            Join a challenge and walk the distance of a famous route or
+            landmark. Choose from 9 different challenges with different
+            difficulty levels based on distance. Each day enter the total
+            distance you have walked to complete the challenge. Use the
+            motivation to then take on another challenge.
           </p>
         </div>
       </div>
