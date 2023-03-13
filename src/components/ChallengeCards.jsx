@@ -4,9 +4,10 @@ import PropTypes from "prop-types";
 import selectChallenge from "../requests/selectChallenge";
 
 function ChallengeCard({ challenge }) {
+  const user = localStorage.getItem("user");
   const handleJoinClick = (event) => {
     event.preventDefault();
-    selectChallenge({ challenge });
+    selectChallenge(challenge, user);
     console.log(event);
   };
   console.log(challenge);
