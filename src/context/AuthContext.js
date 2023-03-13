@@ -1,28 +1,18 @@
-import React, { createContext, useReducer } from "react";
+/* eslint-disable react/function-component-definition */
+import React, { createContext, useReducer, useEffect } from "react";
 
 export const AuthContext = createContext();
-export const initialState = {
-  isAuthenticated: false,
-  user: null,
-  token: null,
-};
 
 export const authReducer = (state, action) => {
   switch (action.type) {
     case "LOGIN":
-      localStorage.setItem("user", JSON.stringify(action.payload.id));
-      localStorage.setItem("token", JSON.stringify(action.payload.accessToken));
       return {
-        ...state,
-        isAuthenticated: true,
         user: action.payload.id,
+        username: action.payload.email,
         token: action.payload.accessToken,
       };
     case "LOGOUT":
-      localStorage.clear();
       return {
-        ...state,
-        isAuthenticated: false,
         user: null,
       };
     default:
@@ -31,10 +21,18 @@ export const authReducer = (state, action) => {
 };
 
 // eslint-disable-next-line react/prop-types
-export function AuthContextProvider({ children }) {
+export const AuthContextProvider = ({ children }) => {
   const [state, dispatch] = useReducer(authReducer, {
     user: null,
   });
+
+  useEffect(() => {
+    const user = JSON.parse(localStorage.getItem("user"));
+
+    if (user) {
+      dispatch({ type: "LOGIN", payload: user });
+    }
+  }, []);
 
   console.log("AuthContext state:", state);
 
@@ -44,4 +42,4 @@ export function AuthContextProvider({ children }) {
       {children}
     </AuthContext.Provider>
   );
-}
+};
