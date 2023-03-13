@@ -1,27 +1,22 @@
+/* eslint-disable react/function-component-definition */
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { useLogin } from "../hooks/useLogin";
 // component imports
-import Alert from "./Alert";
+
 // import loginUser from "../requests/loginUser";
 
 // style import
 import "../styles/Login.css";
 
-function UserLogin() {
+const UserLogin = () => {
   const initialState = {
     fields: {
       email: "",
       password: "",
     },
-    alert: {
-      message: "",
-      success: false,
-    },
   };
-
   const [fields, setFields] = useState(initialState.fields);
-  const [alert, setAlert] = useState(initialState.alert);
   const { login, error, isLoading } = useLogin();
 
   const handleFieldChange = (event) => {
@@ -32,8 +27,6 @@ function UserLogin() {
   const handleUserLogin = async (event) => {
     event.preventDefault();
     setFields({ ...fields });
-    setAlert({ message: "", success: false });
-
     await login({ ...fields });
   };
 
@@ -44,7 +37,6 @@ function UserLogin() {
           <h2>Please login</h2>
         </div>
         <form onSubmit={handleUserLogin} className="login-form">
-          <Alert message={alert.message} success={alert.isSuccess} />
           <label htmlFor="email">
             Email:
             <input
@@ -84,6 +76,6 @@ function UserLogin() {
       </div>
     </>
   );
-}
+};
 
 export default UserLogin;
