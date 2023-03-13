@@ -1,11 +1,20 @@
 /* eslint-disable import/no-extraneous-dependencies */
-import React from "react";
+import React, { useState } from "react";
 import PropTypes from "prop-types";
 import selectChallenge from "../requests/selectChallenge";
+import { useAuthContext } from "../hooks/useAuthContext";
 
 function ChallengeCard({ challenge }) {
+  const { user } = useAuthContext();
+  const [error, setError] = useState("");
+
   const handleJoinClick = (event) => {
     event.preventDefault();
+
+    if (!user) {
+      setError("You must be logged in");
+      return;
+    }
     selectChallenge({ challenge });
     console.log(event);
   };
@@ -32,6 +41,7 @@ function ChallengeCard({ challenge }) {
           >
             Join The Challenge
           </button>
+          {error && <div className="error">{error}</div>}
         </div>
       </div>
     </div>
