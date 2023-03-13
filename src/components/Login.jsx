@@ -17,7 +17,7 @@ const UserLogin = () => {
     },
   };
   const [fields, setFields] = useState(initialState.fields);
-  const { login, error, isLoading } = useLogin();
+  const { login, error, isLoading, isSuccess } = useLogin();
 
   const handleFieldChange = (event) => {
     event.preventDefault();
@@ -37,6 +37,8 @@ const UserLogin = () => {
           <h2>Please login</h2>
         </div>
         <form onSubmit={handleUserLogin} className="login-form">
+          {error && <div>{error}</div>}
+          {isSuccess && <div>Login successful!</div>}
           <label htmlFor="email">
             Email:
             <input
