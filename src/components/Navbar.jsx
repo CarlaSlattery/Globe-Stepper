@@ -9,7 +9,7 @@ import { useAuthContext } from "../hooks/useAuthContext";
 // eslint-disable-next-line react/function-component-definition
 const Navbar = () => {
   const { logout } = useLogout();
-  const { user } = useAuthContext();
+  const { username, user } = useAuthContext();
 
   const handleClick = () => {
     logout();
@@ -18,18 +18,23 @@ const Navbar = () => {
   return (
     <header>
       <div className="container">
-        <img className="navbar-logo" src={globeStepper} alt="logo" />
         <nav className="navigation">
+          <img className="navbar-logo" src={globeStepper} alt="logo" />
+
           {user && (
-            <div>
-              <span>Welcome {user.email}</span>
-              <button type="submit" onClick={handleClick}>
-                Log out
-              </button>
+            <div className="logged-in">
+              <span>Welcome, {username}</span>
+              <Link to="/userchallenge">Dashboard</Link>
+              <Link to="/">Home</Link>
+              <Link to="/">
+                <button type="submit" onClick={handleClick}>
+                  Log out
+                </button>
+              </Link>
             </div>
           )}
           {!user && (
-            <div>
+            <div className="logged-out">
               <Link to="/">Challenges</Link>
               <Link to="/login">Login</Link>
             </div>
