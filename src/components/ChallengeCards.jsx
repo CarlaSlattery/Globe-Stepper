@@ -7,7 +7,6 @@ import { useAuthContext } from "../hooks/useAuthContext";
 function ChallengeCard({ challenge }) {
   const { user } = useAuthContext();
   const [error, setError] = useState("");
-  const UserID = localStorage.getItem("user.id");
 
   const handleJoinClick = (event) => {
     event.preventDefault();
@@ -16,10 +15,13 @@ function ChallengeCard({ challenge }) {
       setError("You must be logged in");
       return;
     }
-    selectChallenge({ challenge, UserID });
+    console.log(user);
+    console.log(challenge);
+    const updatedChallenge = challenge;
+    updatedChallenge.UserId = user;
+    selectChallenge({ updatedChallenge });
     console.log(event);
   };
-  console.log(challenge);
 
   return (
     <div className="card-container">
@@ -57,6 +59,7 @@ ChallengeCard.propTypes = {
     distanceKM: PropTypes.number.isRequired,
     distanceMi: PropTypes.number.isRequired,
     description: PropTypes.string.isRequired,
+    UserId: PropTypes.string,
   }).isRequired,
 };
 
