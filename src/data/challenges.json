@@ -1,7 +1,7 @@
 {
   "challenges": [
     {
-      "id": 1,
+      "staticId": 1,
       "imageUrl": "../hadrians-wall.jpg",
       "title": "Hadrians Wall",
       "distanceKM": 117,
@@ -9,7 +9,7 @@
       "description": "A UNESCO world heritage site, Hadrians wall is a 73 mile path across northern England."
     },
     {
-      "id": 2,
+      "staticId": 2,
       "imageUrl": "../athens.jpg",
       "title": "Marathon to Athens",
       "distanceKM": 42,
@@ -17,7 +17,7 @@
       "description": "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Architecto voluptas quis tempore facere libero nisi maxime dignissimos similiqueexercitationem odio ducimus."
     },
     {
-      "id": 3,
+      "staticId": 3,
       "imageUrl": "../berlin-wall.jpg",
       "title": "Berlin Wall",
       "distanceKM": 155,
@@ -25,7 +25,7 @@
       "description": "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Architecto voluptas quis tempore facere libero nisi maxime dignissimos similiqueexercitationem odio ducimus."
     }, 
     {
-      "id": 4,
+      "staticId": 4,
       "imageUrl": "../great-wall-of-china.jpeg",
       "title": "Great Wall of China",
       "distanceKM": 21196.18,
@@ -33,7 +33,7 @@
       "description": "The Great Wall of China is a series of fortifications that were built across the historical northern borders of ancient Chinese states."
     }, 
     {
-      "id": 5,
+      "staticId": 5,
       "imageUrl": "../great-barrier-reef.jpg",
       "title": "Great Barrier Reef",
       "distanceKM": 2300,
@@ -41,7 +41,7 @@
       "description": "The Great Barrier Reef is the world's largest coral reef system composed of over 2,900 individual reefs and 900 islands."
     }, 
     {
-      "id": 6,
+      "staticId": 6,
       "imageUrl": "../wales-coast-path.jpg",
       "title": "Wales Coastal Path",
       "distanceKM": 1400,
@@ -49,7 +49,7 @@
       "description": "The Wales Coast Path is a designated long-distance trail which follows, or runs close to, the coastline of Wales."
     }, 
     {
-      "id": 7,
+      "staticId": 7,
       "imageUrl": "../route-66.jpg",
       "title": "Route 66",
       "distanceKM": 3669,
@@ -57,7 +57,7 @@
       "description": "U.S. Route 66 or U.S. Highway 66 was one of the original highways in the United States Numbered Highway System."
     }, 
     {
-      "id": 8,
+      "staticId": 8,
       "imageUrl": "../equator.jpg",
       "title": "Equator",
       "distanceKM": 40075,
@@ -65,7 +65,7 @@
       "description": "The equator is a circle of latitude that divides Earth, into the northern and southern hemispheres."
     },
     {
-      "id": 9,
+      "staticId": 9,
       "imageUrl": "../nile.jpg",
       "title": "River Nile",
       "distanceKM": 6650,
