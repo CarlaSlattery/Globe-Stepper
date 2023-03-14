@@ -1,12 +1,30 @@
 import React, { useState } from "react";
 
 // Component import
+import postDistance from "../requests/postDistance";
 
 // Imported styling
 import "../styles/current-challenge.css";
+import Alert from "./Alert";
 
 function CurrentChallenge() {
-  const [distance, setNewDistance] = useState("");
+  const initialState = {
+    distance: "",
+    alert: {
+      message: "",
+      success: false,
+    },
+  };
+
+  const [distance, setNewDistance] = useState(initialState.distance);
+  const [alert, setAlert] = useState(initialState.alert);
+
+  const handlePostDistance = (event) => {
+    event.preventDefault();
+    postDistance(distance, setAlert);
+    setAlert({ message: "", success: false });
+  };
+
   return (
     <div className="challenge-container">
       <div className="current-challenge-header">
@@ -23,18 +41,17 @@ function CurrentChallenge() {
               max="100"
               value="65"
             >
-              65%
+              35%
             </progress>
           </label>
 
-          <form className="addDistance">
+          <form onSubmit={handlePostDistance} className="addDistance">
             <label htmlFor="distance entry">
               Post a Distance:
               <input
                 id="addDistance"
                 type="number"
                 placeholder="0.00"
-                required
                 value={distance}
                 onChange={(e) => setNewDistance(e.target.value)}
               />
@@ -43,6 +60,7 @@ function CurrentChallenge() {
               Post
             </button>
             <p>{distance}</p>
+            <Alert message={alert.message} success={alert.isSuccess} />
           </form>
 
           <div className="challenge-statistics">
