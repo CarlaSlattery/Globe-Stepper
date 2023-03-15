@@ -1,12 +1,27 @@
 /* eslint-disable import/no-extraneous-dependencies */
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import PropTypes from "prop-types";
 import selectChallenge from "../requests/selectChallenge";
 import { useAuthContext } from "../hooks/useAuthContext";
+import Alert from "./Alert";
 
 function ChallengeCard({ challenge }) {
   const { user } = useAuthContext();
   const [error, setError] = useState("");
+  const initialState = {
+    alert: {
+      message: "",
+      success: false,
+    },
+  };
+  const [alert, setAlert] = useState(initialState.alert);
+
+  // removes join challenge confirmation message on user logout
+  useEffect(() => {
+    if (!user) {
+      setAlert("");
+    }
+  }, [user]);
 
   const handleJoinClick = (event) => {
     event.preventDefault();
@@ -20,6 +35,12 @@ function ChallengeCard({ challenge }) {
     const updatedChallenge = challenge;
     updatedChallenge.UserId = user;
     selectChallenge({ updatedChallenge });
+    setAlert((prevState) => ({
+      ...prevState,
+      message: "Challenge joined successfully - good luck!",
+      success: true,
+    }));
+
     console.log(event);
   };
 
@@ -44,6 +65,8 @@ function ChallengeCard({ challenge }) {
           >
             Join The Challenge
           </button>
+          <Alert message={alert.message} success={alert.success} />
+
           {error && <div className="error">{error}</div>}
         </div>
       </div>
