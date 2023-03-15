@@ -1,8 +1,8 @@
 import axios from "axios";
 
-function postDistance(distance, setAlert) {
+function postDistance(fields, setAlert) {
   return axios
-    .post("http://localhost:4000/progress", distance)
+    .post("http://localhost:4000/progress", fields)
     .then(() => {
       setAlert({
         message: "Distance posted successfully!",

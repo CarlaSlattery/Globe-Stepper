@@ -1,28 +1,42 @@
 import React, { useState } from "react";
+import { useAuthContext } from "../hooks/useAuthContext";
 
 // Component import
 import postDistance from "../requests/postDistance";
+import Alert from "./Alert";
 
 // Imported styling
 import "../styles/current-challenge.css";
-import Alert from "./Alert";
 
 function CurrentChallenge() {
+  const { user } = useAuthContext();
+
   const initialState = {
-    distance: "",
+    fields: {
+      distance: 0,
+    },
     alert: {
       message: "",
       success: false,
     },
   };
 
-  const [distance, setNewDistance] = useState(initialState.distance);
+  const [fields, setFields] = useState(initialState.fields);
   const [alert, setAlert] = useState(initialState.alert);
 
   const handlePostDistance = (event) => {
     event.preventDefault();
-    postDistance(distance, setAlert);
+    console.log(user);
+    console.log(fields.distance);
+    const updatedDistance = fields;
+    updatedDistance.UserId = user;
+    postDistance(updatedDistance, setAlert);
     setAlert({ message: "", success: false });
+  };
+
+  const handleFieldChange = (event) => {
+    event.preventDefault();
+    setFields({ ...fields, [event.target.name]: event.target.value });
   };
 
   return (
@@ -45,30 +59,30 @@ function CurrentChallenge() {
             </progress>
           </label>
 
-          <form onSubmit={handlePostDistance} className="addDistance">
-            <label htmlFor="distance entry">
-              Post a Distance:
-              <input
-                id="addDistance"
-                type="number"
-                placeholder="0.00"
-                value={distance}
-                onChange={(e) => setNewDistance(e.target.value)}
-              />
-            </label>
-            <button className="enter-distance-btn" type="submit">
-              Post
-            </button>
-            <p>{distance}</p>
-            <Alert message={alert.message} success={alert.isSuccess} />
-          </form>
-
           <div className="challenge-statistics">
             <span>Distance Travelled:</span>
             <span>76km</span>
             <span>Distance Remaining: </span>
             <span>41km</span>
           </div>
+
+          <form onSubmit={handlePostDistance} className="addDistance">
+            <label htmlFor="distance entry">
+              Post a Distance:
+              <input
+                id="distance"
+                name="distance"
+                type="number"
+                placeholder="0.00"
+                value={fields.distance}
+                onChange={handleFieldChange}
+              />
+            </label>
+            <button className="enter-distance-btn" type="submit">
+              Post
+            </button>
+            <Alert message={alert.message} success={alert.success} />
+          </form>
         </div>
         <div className="completed-challenges">
           <h3>Your Completed Challenges</h3>
