@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useAuthContext } from "../hooks/useAuthContext";
 
 // Component import
@@ -7,6 +7,7 @@ import Alert from "./Alert";
 
 // Imported styling
 import "../styles/current-challenge.css";
+import getChallenge from "../requests/getChallenge";
 
 function CurrentChallenge() {
   const { user } = useAuthContext();
@@ -39,11 +40,15 @@ function CurrentChallenge() {
     setFields({ ...fields, [event.target.name]: event.target.value });
   };
 
+  useEffect(() => {
+    getChallenge(user);
+  }, [user]);
+
   return (
     <div className="challenge-container">
       <div className="current-challenge-header">
         <h2>Your Current Challenge</h2>
-        <h3>(Challenge Name)</h3>
+        <h3>{getChallenge.description}</h3>
         <img src="projectimageurl" alt="current-challenge" />
         <div className="progress-container">
           <h3>Progress Tracker</h3>
