@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useAuthContext } from "../hooks/useAuthContext";
 
 // Component import
@@ -7,6 +7,7 @@ import Alert from "./Alert";
 
 // Imported styling
 import "../styles/current-challenge.css";
+import getChallenge from "../requests/getChallenge";
 
 function CurrentChallenge() {
   const { user } = useAuthContext();
@@ -23,6 +24,7 @@ function CurrentChallenge() {
 
   const [fields, setFields] = useState(initialState.fields);
   const [alert, setAlert] = useState(initialState.alert);
+  const [currentChallenge, setCurrentChallenge] = useState(null);
 
   const handlePostDistance = (event) => {
     event.preventDefault();
@@ -39,12 +41,20 @@ function CurrentChallenge() {
     setFields({ ...fields, [event.target.name]: event.target.value });
   };
 
+  useEffect(() => {
+    getChallenge(user).then((response) => {
+      console.log(response.data);
+      setCurrentChallenge(response.data[0]);
+    });
+  }, [user]);
+
+  if (!currentChallenge) return <p>Loading</p>;
   return (
     <div className="challenge-container">
       <div className="current-challenge-header">
         <h2>Your Current Challenge</h2>
-        <h3>(Challenge Name)</h3>
-        <img src="projectimageurl" alt="current-challenge" />
+        <h3>{currentChallenge.title}</h3>
+        <img src={currentChallenge.imageUrl} alt="current-challenge" />
         <div className="progress-container">
           <h3>Progress Tracker</h3>
           <label htmlFor="progress percentage">

@@ -2,7 +2,7 @@
   "challenges": [
     {
       "staticId": 1,
-      "imageUrl": "../hadrians-wall.jpg",
+      "imageUrl": "/hadrians-wall.jpg",
       "title": "Hadrians Wall",
       "distanceKM": 117,
       "distanceMi": 73,
@@ -10,7 +10,7 @@
     },
     {
       "staticId": 2,
-      "imageUrl": "../athens.jpg",
+      "imageUrl": "/athens.jpg",
       "title": "Marathon to Athens",
       "distanceKM": 42,
       "distanceMi": 26,
@@ -18,7 +18,7 @@
     },
     {
       "staticId": 3,
-      "imageUrl": "../berlin-wall.jpg",
+      "imageUrl": "/berlin-wall.jpg",
       "title": "Berlin Wall",
       "distanceKM": 155,
       "distanceMi": 96,
@@ -26,7 +26,7 @@
     }, 
     {
       "staticId": 4,
-      "imageUrl": "../great-wall-of-china.jpeg",
+      "imageUrl": "/great-wall-of-china.jpeg",
       "title": "Great Wall of China",
       "distanceKM": 21196.18,
       "distanceMi": 13170.70,
@@ -34,7 +34,7 @@
     }, 
     {
       "staticId": 5,
-      "imageUrl": "../great-barrier-reef.jpg",
+      "imageUrl": "/great-barrier-reef.jpg",
       "title": "Great Barrier Reef",
       "distanceKM": 2300,
       "distanceMi": 1400,
@@ -42,7 +42,7 @@
     }, 
     {
       "staticId": 6,
-      "imageUrl": "../wales-coast-path.jpg",
+      "imageUrl": "/wales-coast-path.jpg",
       "title": "Wales Coastal Path",
       "distanceKM": 1400,
       "distanceMi": 870,
@@ -50,7 +50,7 @@
     }, 
     {
       "staticId": 7,
-      "imageUrl": "../route-66.jpg",
+      "imageUrl": "/route-66.jpg",
       "title": "Route 66",
       "distanceKM": 3669,
       "distanceMi": 2280,
@@ -58,7 +58,7 @@
     }, 
     {
       "staticId": 8,
-      "imageUrl": "../equator.jpg",
+      "imageUrl": "/equator.jpg",
       "title": "Equator",
       "distanceKM": 40075,
       "distanceMi": 24901,
@@ -66,7 +66,7 @@
     },
     {
       "staticId": 9,
-      "imageUrl": "../nile.jpg",
+      "imageUrl": "/nile.jpg",
       "title": "River Nile",
       "distanceKM": 6650,
       "distanceMi": 4132,
