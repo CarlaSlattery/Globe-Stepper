@@ -1,5 +1,6 @@
 /* eslint-disable react/function-component-definition */
 import React, { useState } from "react";
+import { Box, Heading } from "@chakra-ui/react";
 import { Link } from "react-router-dom";
 import { useLogin } from "../hooks/useLogin";
 // component imports
@@ -32,10 +33,9 @@ const UserLogin = () => {
 
   return (
     <>
-      <div className="login-container">
-        <div className="login-header">
-          <h2>Please login</h2>
-        </div>
+      <Heading>Please login</Heading>
+
+      <Box maxW="40%">
         <form onSubmit={handleUserLogin} className="login-form">
           {error && <div>{error}</div>}
           {isSuccess && <div>Login successful!</div>}
@@ -66,15 +66,20 @@ const UserLogin = () => {
             Login
           </button>
         </form>
-      </div>
+      </Box>
+
       <div className="register-prompt">
-        <h3>Not currently a GlobeStepper?</h3>
-        <h4>
-          Then come and join us{" "}
-          <Link to="/register" className="register-link">
-            here.
-          </Link>
-        </h4>
+        <Box>
+          <Heading as="h3" size="lg">
+            Not currently a GlobeStepper?
+          </Heading>
+          <Heading as="h4" size="sm">
+            Then come and join us{" "}
+            <Link to="/register" className="register-link">
+              here.
+            </Link>
+          </Heading>
+        </Box>
       </div>
     </>
   );
