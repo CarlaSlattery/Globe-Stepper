@@ -1,6 +1,6 @@
 import React from "react";
-// eslint-disable-next-line import/no-extraneous-dependencies
-import { Link } from "react-router-dom";
+import { Flex, Button, Heading, Spacer, HStack } from "@chakra-ui/react";
+import { NavLink } from "react-router-dom";
 import { useLogout } from "../hooks/useLogout";
 
 import globeStepper from "../assets/GlobeStepper.png";
@@ -16,32 +16,41 @@ const Navbar = () => {
   };
 
   return (
-    <header>
-      <div className="container">
-        <nav className="navigation">
-          <img className="navbar-logo" src={globeStepper} alt="logo" />
+    <Flex as="nav" alignItems="center" p="1em">
+      <img className="navbar-logo" src={globeStepper} alt="logo" />
+      <Heading as="h3" fontSize="1.4rem" p="1em" color="blue.500">
+        GlobeStepper
+      </Heading>
+      <Spacer />
 
-          {user && (
-            <div className="logged-in">
-              <span>Welcome, {username}</span>
-              <Link to="/userchallenge">Dashboard</Link>
-              <Link to="/">Home</Link>
-              <Link to="/">
-                <button type="submit" onClick={handleClick}>
-                  Log out
-                </button>
-              </Link>
-            </div>
-          )}
-          {!user && (
-            <div className="logged-out">
-              <Link to="/">Challenges</Link>
-              <Link to="/login">Login</Link>
-            </div>
-          )}
-        </nav>
-      </div>
-    </header>
+      {user && (
+        <div className="logged-in">
+          <span>Welcome, {username}</span>
+          <HStack spacing={2}>
+            <NavLink to="/userchallenge">Dashboard</NavLink>
+            <NavLink to="/">Home</NavLink>
+            <NavLink to="/">
+              <Button colorScheme="purple" type="submit" onClick={handleClick}>
+                Log out
+              </Button>
+            </NavLink>
+          </HStack>
+        </div>
+      )}
+
+      {!user && (
+        <div className="logged-out">
+          <HStack spacing="1.5em">
+            <Button bg="blue.400" color="white">
+              <NavLink to="/">Challenges</NavLink>
+            </Button>
+            <Button bg="blue.400" color="white">
+              <NavLink to="/login">Login</NavLink>
+            </Button>
+          </HStack>
+        </div>
+      )}
+    </Flex>
   );
 };
 
