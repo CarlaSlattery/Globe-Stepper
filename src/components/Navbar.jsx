@@ -27,10 +27,19 @@ const Navbar = () => {
         <div className="logged-in">
           <span>Welcome, {username}</span>
           <HStack spacing={2}>
-            <NavLink to="/userchallenge">Dashboard</NavLink>
-            <NavLink to="/">Home</NavLink>
+            <Button bg="blue.400" color="white">
+              <NavLink to="/userchallenge">Dashboard</NavLink>
+            </Button>
+            <Button bg="blue.400" color="white">
+              <NavLink to="/">Home</NavLink>
+            </Button>
             <NavLink to="/">
-              <Button colorScheme="purple" type="submit" onClick={handleClick}>
+              <Button
+                bg="blue.400"
+                color="white"
+                type="submit"
+                onClick={handleClick}
+              >
                 Log out
               </Button>
             </NavLink>

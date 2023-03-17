@@ -1,14 +1,26 @@
 /* eslint-disable react/function-component-definition */
 import React, { useState } from "react";
-import { Box, Heading } from "@chakra-ui/react";
-import { Link } from "react-router-dom";
+// eslint-disable-next-line prettier/prettier
+import {
+  Box,
+  Heading,
+  FormControl,
+  FormLabel,
+  Input,
+  FormHelperText,
+  Text,
+  Button,
+  Alert,
+  Link,
+} from "@chakra-ui/react";
+import { Link as ReactRouter } from "react-router-dom";
 import { useLogin } from "../hooks/useLogin";
 // component imports
 
 // import loginUser from "../requests/loginUser";
 
 // style import
-import "../styles/Login.css";
+// import "../styles/Login.css";
 
 const UserLogin = () => {
   const initialState = {
@@ -32,56 +44,50 @@ const UserLogin = () => {
   };
 
   return (
-    <>
-      <Heading>Please login</Heading>
-
-      <Box maxW="40%">
-        <form onSubmit={handleUserLogin} className="login-form">
-          {error && <div>{error}</div>}
-          {isSuccess && <div>Login successful!</div>}
-          <label htmlFor="email">
-            Email:
-            <input
-              type="email"
+    <Box>
+      <Box maxW="40%" boxShadow="2xl" p="6" rounded="md" bg="blue.400">
+        <Heading color="white">Login</Heading>
+        <form onSubmit={handleUserLogin}>
+          {error && <Alert status="error">{error}</Alert>}
+          {isSuccess && <Alert status="success">Login successful!</Alert>}
+          <FormControl>
+            <FormLabel>Email:</FormLabel>
+            <Input
+              type="text"
               name="email"
+              bg="gray.200"
               value={fields.email}
               onChange={handleFieldChange}
-              placeholder="Enter your email"
             />
-          </label>
-          <label htmlFor="password">
-            Password:
-            <input
+            <FormHelperText color="white">Enter your email.</FormHelperText>
+          </FormControl>
+          <FormControl>
+            <FormLabel>Password</FormLabel>
+            <Input
               type="password"
               name="password"
+              bg="gray.200"
               value={fields.password}
               onChange={handleFieldChange}
-              placeholder="enter password"
-              autoComplete="on"
             />
-          </label>
-          {alert.message && <span className="form-error">{alert.message}</span>}
-          <button type="submit" disabled={isLoading} className="login-button">
-            {error && <div className="error">{error}</div>}
+            <FormHelperText color="white">Enter password.</FormHelperText>
+          </FormControl>
+          <Button bg="green.300" m="1.5em" type="submit" disabled={isLoading}>
+            {error && <Alert status="error">{error}</Alert>}
             Login
-          </button>
+          </Button>
         </form>
       </Box>
-
-      <div className="register-prompt">
-        <Box>
-          <Heading as="h3" size="lg">
-            Not currently a GlobeStepper?
-          </Heading>
-          <Heading as="h4" size="sm">
-            Then come and join us{" "}
-            <Link to="/register" className="register-link">
-              here.
-            </Link>
-          </Heading>
-        </Box>
-      </div>
-    </>
+      <Box maxW="70%" m="2em">
+        <Heading>Not currently a GlobeStepper?</Heading>
+        <Text fontSize="xl" m="1em">
+          Then come and join us{" "}
+          <Link as={ReactRouter} to="/register">
+            here.
+          </Link>
+        </Text>
+      </Box>
+    </Box>
   );
 };
 
