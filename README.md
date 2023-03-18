@@ -1,3 +1,5 @@
+<p align="center"><img height="200" src="https://github.com/CarlaSlattery/Globe-Stepper/blob/main/src/assets/GlobeStepper.png"> </p>
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
