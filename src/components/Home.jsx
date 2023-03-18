@@ -1,5 +1,5 @@
 import React from "react";
-import { Container, Box, Heading, Text } from "@chakra-ui/react";
+import { Container, Heading, Text, Box } from "@chakra-ui/react";
 
 // component imports
 import ChallengesList from "./ChallengesList";
@@ -10,12 +10,11 @@ import CurrentChallenge from "./CurrentChallenge";
 
 function Home() {
   return (
-    <Container>
-      <Box>
+    <Container maxW="100%">
+      <Box bg="blue.400" w="100%">
         <Heading as="h1" fontSize="6xl">
           Globestepper
         </Heading>
-
         <Text fontSize="3xl">Where will you walk?</Text>
       </Box>
       <Container maxW="60%" bg="green.300" mt="2em" px="3em" py="1em">

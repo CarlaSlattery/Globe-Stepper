@@ -1,6 +1,7 @@
 /* eslint-disable import/no-extraneous-dependencies */
 import React from "react";
 import { PropTypes } from "prop-types";
+import { Heading } from "@chakra-ui/react";
 
 // Component import
 // import { Challenge } from ?
@@ -16,7 +17,7 @@ function ChallengesList({ challenges }) {
   };
   return (
     <>
-      <h2>Choose a Challenge!</h2>
+      <Heading>Choose a Challenge!</Heading>
       <div className="challenge-card-container">
         {challenges.map((challenge) => {
           return (

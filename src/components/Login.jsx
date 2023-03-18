@@ -75,8 +75,8 @@ const UserLogin = () => {
           </FormControl>
           <Button bg="green.300" m="1.5em" type="submit" disabled={isLoading}>
             {isLoading ? "Logging in..." : "Login"}
+            {error && <Alert status="error">{error}</Alert>}
           </Button>
-          {error && <Alert status="error">{error}</Alert>}
         </form>
       </Box>
       <Box maxW="70%" m="2em">

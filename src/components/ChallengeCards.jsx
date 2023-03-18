@@ -1,5 +1,14 @@
 /* eslint-disable import/no-extraneous-dependencies */
 import React, { useEffect, useState } from "react";
+import {
+  Card,
+  CardBody,
+  Image,
+  Text,
+  Heading,
+  Button,
+  Divider,
+} from "@chakra-ui/react";
 import PropTypes from "prop-types";
 import selectChallenge from "../requests/selectChallenge";
 import { useAuthContext } from "../hooks/useAuthContext";
@@ -45,38 +54,36 @@ function ChallengeCard({ challenge }) {
   };
 
   return (
-    <div className="card-container">
-      <div className="card-items">
-        <img
-          className="challenge-card-img"
-          src={challenge.imageUrl}
-          alt={challenge.title}
-        />
-        <div className="card-content">
-          <h3 className="card-title">{challenge.title}</h3>
-          <p className="card-distances">
-            {challenge.distanceKM} Km / {challenge.distanceMi} Miles
-          </p>
-          <p className="card-description">{challenge.description}</p>
-          <button
-            className="challenge-select-btn"
-            type="submit"
-            onClick={handleJoinClick}
-          >
-            Join The Challenge
-          </button>
-          <Alert message={alert.message} success={alert.success} />
+    <Card key={challenge.id} borderColor="green.300" maxW="sm">
+      <CardBody>
+        <Image src={challenge.imageUrl} alt={challenge.title} />
 
-          {error && <div className="error">{error}</div>}
-        </div>
-      </div>
-    </div>
+        <Heading className="card-title">{challenge.title}</Heading>
+        <Text>
+          {challenge.distanceKM} Km / {challenge.distanceMi} Miles
+        </Text>
+        <Divider borderColor="blue.300" />
+        <Text className="card-description">{challenge.description}</Text>
+        <Button
+          className="challenge-select-btn"
+          type="submit"
+          onClick={handleJoinClick}
+        >
+          Join The Challenge
+        </Button>
+      </CardBody>
+
+      <Alert message={alert.message} success={alert.success} />
+
+      {error && <div className="error">{error}</div>}
+    </Card>
   );
 }
 
 ChallengeCard.propTypes = {
   challenge: PropTypes.shape({
     staticId: PropTypes.number.isRequired,
+    id: PropTypes.number.isRequired,
     imageUrl: PropTypes.string.isRequired,
     title: PropTypes.string.isRequired,
     distanceKM: PropTypes.number.isRequired,

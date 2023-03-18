@@ -1,5 +1,5 @@
 import React from "react";
-import { Flex, Button, Heading, Spacer, HStack } from "@chakra-ui/react";
+import { Flex, Button, Heading, Spacer, HStack, Image } from "@chakra-ui/react";
 import { NavLink } from "react-router-dom";
 import { useLogout } from "../hooks/useLogout";
 
@@ -17,8 +17,8 @@ const Navbar = () => {
 
   return (
     <Flex as="nav" alignItems="center" p="1em">
-      <img className="navbar-logo" src={globeStepper} alt="logo" />
-      <Heading as="h3" fontSize="1.4rem" p="1em" color="blue.500">
+      <Image boxSize="6em" src={globeStepper} alt="logo" />
+      <Heading as="h3" fontSize="1.6rem" p="1em" color="blue.500">
         GlobeStepper
       </Heading>
       <Spacer />
