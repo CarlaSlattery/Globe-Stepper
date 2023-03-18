@@ -10,9 +10,16 @@ function Progress() {
 
   useEffect(() => {
     getProgress(user).then((response) => {
-      setCurrentProgress(response.data[0].distance);
-      /*       const distance = response.data.map() */
-      console.log(response.data[0].distance);
+      const distance = response.data.map((data) => data.distance);
+      console.log(distance);
+      const distanceNum = distance.map((str) => {
+        return parseInt(str, 10);
+      });
+      console.log(distanceNum);
+
+      const distanceTotal = distanceNum.reduce((acc, value) => acc + value);
+      console.log(distanceTotal);
+      setCurrentProgress(distanceTotal);
     });
   }, [user]);
 
@@ -25,16 +32,14 @@ function Progress() {
         <progress
           id="progressPercent"
           className="progress-bar"
-          max="100"
-          value="65"
-        >
-          35%
-        </progress>
+          max="76"
+          value={currentProgress}
+        />
       </label>
 
       <div className="challenge-statistics">
         <span>Total distance:</span>
-        <span>{currentProgress}</span>
+        <span>{currentProgress}km</span>
         <span>Distance Travelled:</span>
         <span>76km</span>
         <span>Distance Remaining: </span>
