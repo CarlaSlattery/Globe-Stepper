@@ -12,6 +12,7 @@ import {
   Button,
   Alert,
   Link,
+  Container,
 } from "@chakra-ui/react";
 import { Link as ReactRouter } from "react-router-dom";
 import { useLogin } from "../hooks/useLogin";
@@ -44,7 +45,7 @@ const UserLogin = () => {
   };
 
   return (
-    <Box>
+    <Container maxW="80%">
       <Box maxW="40%" boxShadow="2xl" p="6" rounded="md" bg="blue.400">
         <Heading color="white">Login</Heading>
         <form onSubmit={handleUserLogin}>
@@ -73,9 +74,9 @@ const UserLogin = () => {
             <FormHelperText color="white">Enter password.</FormHelperText>
           </FormControl>
           <Button bg="green.300" m="1.5em" type="submit" disabled={isLoading}>
-            {error && <Alert status="error">{error}</Alert>}
-            Login
+            {isLoading ? "Logging in..." : "Login"}
           </Button>
+          {error && <Alert status="error">{error}</Alert>}
         </form>
       </Box>
       <Box maxW="70%" m="2em">
@@ -87,7 +88,7 @@ const UserLogin = () => {
           </Link>
         </Text>
       </Box>
-    </Box>
+    </Container>
   );
 };
 

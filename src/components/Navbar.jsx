@@ -27,12 +27,18 @@ const Navbar = () => {
         <div className="logged-in">
           <span>Welcome, {username}</span>
           <HStack spacing={2}>
-            <Button bg="blue.400" color="white">
-              <NavLink to="/userchallenge">Dashboard</NavLink>
-            </Button>
-            <Button bg="blue.400" color="white">
-              <NavLink to="/">Home</NavLink>
-            </Button>
+            <NavLink to="/userchallenge">
+              <Button bg="blue.400" color="white">
+                Dashboard
+              </Button>
+            </NavLink>
+
+            <NavLink to="/">
+              <Button bg="blue.400" color="white">
+                Home{" "}
+              </Button>
+            </NavLink>
+
             <NavLink to="/">
               <Button
                 bg="blue.400"
@@ -50,12 +56,17 @@ const Navbar = () => {
       {!user && (
         <div className="logged-out">
           <HStack spacing="1.5em">
-            <Button bg="blue.400" color="white">
-              <NavLink to="/">Challenges</NavLink>
-            </Button>
-            <Button bg="blue.400" color="white">
-              <NavLink to="/login">Login</NavLink>
-            </Button>
+            <NavLink to="/">
+              <Button bg="blue.400" color="white">
+                Challenges
+              </Button>
+            </NavLink>
+
+            <NavLink to="/login">
+              <Button bg="blue.400" color="white">
+                Login{" "}
+              </Button>
+            </NavLink>
           </HStack>
         </div>
       )}

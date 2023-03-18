@@ -7,8 +7,8 @@ import { PropTypes } from "prop-types";
 import ChallengeCard from "./ChallengeCards";
 
 // Styles imports
-import "../styles/challenges-list.css";
-import "../styles/challenge-card.css";
+// import "../styles/challenges-list.css";
+// import "../styles/challenge-card.css";
 
 function ChallengesList({ challenges }) {
   const chooseChallenge = ({ challenge }) => {

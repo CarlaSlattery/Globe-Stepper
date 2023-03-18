@@ -4,10 +4,10 @@ import { useAuthContext } from "../hooks/useAuthContext";
 // Component import
 import postDistance from "../requests/postDistance";
 import Alert from "./Alert";
+import getChallenge from "../requests/getChallenge";
 
 // Imported styling
-import "../styles/current-challenge.css";
-import getChallenge from "../requests/getChallenge";
+// import "../styles/current-challenge.css";
 
 function CurrentChallenge() {
   const { user } = useAuthContext();
