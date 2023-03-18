@@ -2,11 +2,13 @@ import React, { useEffect, useState } from "react";
 import { useAuthContext } from "../hooks/useAuthContext";
 
 import getChallenge from "../requests/getChallenge";
+import getProgress from "../requests/getProgress";
 
 function Progress() {
   const { user } = useAuthContext();
 
   const [currentChallenge, setCurrentChallenge] = useState(null);
+  const [currentProgress, setCurrentProgress] = useState(null);
 
   useEffect(() => {
     getChallenge(user).then((response) => {
@@ -15,7 +17,14 @@ function Progress() {
     });
   }, [user]);
 
-  if (!currentChallenge) return <p>Loading</p>;
+  useEffect(() => {
+    getProgress(user, currentChallenge.id).then((response) => {
+      console.log(response.data);
+      setCurrentProgress(response.data);
+    });
+  });
+
+  if ((!currentChallenge, !currentProgress)) return <p>Loading</p>;
   return (
     <div className="progress-container">
       <h3>Progress Tracker</h3>
