@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 import { useAuthContext } from "../hooks/useAuthContext";
 
 // Component import
@@ -66,7 +67,15 @@ function CurrentChallenge() {
     });
   }, [user, currentProgress]);
 
-  if (!currentChallenge) return <p>Loading</p>;
+  if (!currentChallenge)
+    return (
+      <div>
+        <h2>You need to join a challenge</h2>
+        <h3>
+          View the available challenges <Link to="/"> here </Link>
+        </h3>
+      </div>
+    );
   return (
     <div className="challenge-container">
       <div className="current-challenge-header">
