@@ -1,7 +1,7 @@
 /* eslint-disable import/no-extraneous-dependencies */
 import React from "react";
 import { PropTypes } from "prop-types";
-import { Heading } from "@chakra-ui/react";
+import { Heading, SimpleGrid, Container } from "@chakra-ui/react";
 
 // Component import
 // import { Challenge } from ?
@@ -16,9 +16,9 @@ function ChallengesList({ challenges }) {
     console.log("challenge selected: ", challenge);
   };
   return (
-    <>
+    <Container>
       <Heading>Choose a Challenge!</Heading>
-      <div className="challenge-card-container">
+      <SimpleGrid column={3}>
         {challenges.map((challenge) => {
           return (
             <div key={challenge.id} className="challenge-cards">
@@ -26,8 +26,8 @@ function ChallengesList({ challenges }) {
             </div>
           );
         })}
-      </div>
-    </>
+      </SimpleGrid>
+    </Container>
   );
 }
 
