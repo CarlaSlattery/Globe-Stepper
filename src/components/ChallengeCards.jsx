@@ -5,9 +5,10 @@ import {
   CardBody,
   Image,
   Text,
-  Heading,
   Button,
   Divider,
+  Heading,
+  Flex,
 } from "@chakra-ui/react";
 import PropTypes from "prop-types";
 import selectChallenge from "../requests/selectChallenge";
@@ -54,29 +55,37 @@ function ChallengeCard({ challenge }) {
   };
 
   return (
-    <Card key={challenge.id} borderColor="green.300" maxW="sm">
-      <CardBody>
-        <Image src={challenge.imageUrl} alt={challenge.title} />
+    <Flex>
+      <Card key={challenge.id} align="center" bg="gray.200">
+        <CardBody>
+          <Image src={challenge.imageUrl} alt={challenge.title} maxH="270px" />
 
-        <Heading className="card-title">{challenge.title}</Heading>
-        <Text>
-          {challenge.distanceKM} Km / {challenge.distanceMi} Miles
-        </Text>
-        <Divider borderColor="blue.300" />
-        <Text className="card-description">{challenge.description}</Text>
-        <Button
-          className="challenge-select-btn"
-          type="submit"
-          onClick={handleJoinClick}
-        >
-          Join The Challenge
-        </Button>
-      </CardBody>
+          <Heading p=".2em" className="card-title">
+            {challenge.title}
+          </Heading>
+          <Text p="0.5em">
+            {challenge.distanceKM} Km / {challenge.distanceMi} Miles
+          </Text>
+          <Divider borderColor="blue.400" borderWidth="3px" />
+          <Text p="0.5em" className="card-description">
+            {challenge.description}
+          </Text>
+          <Button
+            bg="green.300"
+            _hover={{ bg: "blue.300" }}
+            className="challenge-select-btn"
+            type="submit"
+            onClick={handleJoinClick}
+          >
+            Join The Challenge
+          </Button>
+        </CardBody>
 
-      <Alert message={alert.message} success={alert.success} />
+        <Alert message={alert.message} success={alert.success} />
 
-      {error && <div className="error">{error}</div>}
-    </Card>
+        {error && <div className="error">{error}</div>}
+      </Card>
+    </Flex>
   );
 }
 

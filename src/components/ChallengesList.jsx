@@ -1,10 +1,11 @@
 /* eslint-disable import/no-extraneous-dependencies */
 import React from "react";
 import { PropTypes } from "prop-types";
-import { Heading, SimpleGrid, Container } from "@chakra-ui/react";
+import { SimpleGrid } from "@chakra-ui/react";
 
 // Component import
 // import { Challenge } from ?
+// eslint-disable-next-line import/no-named-as-default
 import ChallengeCard from "./ChallengeCards";
 
 // Styles imports
@@ -16,18 +17,15 @@ function ChallengesList({ challenges }) {
     console.log("challenge selected: ", challenge);
   };
   return (
-    <Container>
-      <Heading>Choose a Challenge!</Heading>
-      <SimpleGrid column={3}>
-        {challenges.map((challenge) => {
-          return (
-            <div key={challenge.id} className="challenge-cards">
-              <ChallengeCard onSubmit={chooseChallenge} challenge={challenge} />
-            </div>
-          );
-        })}
-      </SimpleGrid>
-    </Container>
+    <SimpleGrid spacing={6} columns={{ base: 1, md: 2, lg: 3 }}>
+      {challenges.map((challenge) => {
+        return (
+          <div key={challenge.id} className="challenge-cards">
+            <ChallengeCard onSubmit={chooseChallenge} challenge={challenge} />
+          </div>
+        );
+      })}
+    </SimpleGrid>
   );
 }
 

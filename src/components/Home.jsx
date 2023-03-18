@@ -18,7 +18,7 @@ function Home() {
         <Text fontSize="3xl">Where will you walk?</Text>
       </Box>
       <Container maxW="60%" bg="green.300" mt="2em" px="3em" py="1em">
-        <Text as="section" fontSize="1.4rem">
+        <Text>
           Join a challenge and walk the distance of a famous route or landmark.
           Choose from 9 different challenges with different difficulty levels
           based on distance. Each day enter the total distance you have walked
