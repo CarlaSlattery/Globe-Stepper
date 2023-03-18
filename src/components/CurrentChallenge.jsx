@@ -4,11 +4,11 @@ import { useAuthContext } from "../hooks/useAuthContext";
 // Component import
 import postDistance from "../requests/postDistance";
 import Alert from "./Alert";
-import Progress from "./Progress";
 
 // Imported styling
 import "../styles/current-challenge.css";
 import getChallenge from "../requests/getChallenge";
+import getProgress from "../requests/getProgress";
 
 function CurrentChallenge() {
   const { user } = useAuthContext();
@@ -26,6 +26,7 @@ function CurrentChallenge() {
   const [fields, setFields] = useState(initialState.fields);
   const [alert, setAlert] = useState(initialState.alert);
   const [currentChallenge, setCurrentChallenge] = useState(null);
+  const [currentProgress, setCurrentProgress] = useState(null);
 
   const handlePostDistance = (event) => {
     event.preventDefault();
@@ -49,6 +50,22 @@ function CurrentChallenge() {
     });
   }, [user]);
 
+  useEffect(() => {
+    getProgress(user).then((response) => {
+      const distance = response.data.map((data) => data.distance);
+      console.log(distance);
+      const distanceNum = distance.map((str) => {
+        return parseInt(str, 10);
+      });
+      console.log(distanceNum);
+
+      const distanceTotal = distanceNum.reduce((acc, value) => acc + value);
+      console.log(distanceTotal);
+      setCurrentProgress(distanceTotal);
+      return currentProgress;
+    });
+  }, [user, currentProgress]);
+
   if (!currentChallenge) return <p>Loading</p>;
   return (
     <div className="challenge-container">
@@ -56,7 +73,29 @@ function CurrentChallenge() {
         <h2>Your Current Challenge</h2>
         <h3>{currentChallenge.title}</h3>
         <img src={currentChallenge.imageUrl} alt="current-challenge" />
-        <Progress />
+        <div className="progress-container">
+          <h3>Progress Tracker</h3>
+          <label htmlFor="progress percentage">
+            Challenge Completion Percentage
+            <progress
+              id="progressPercent"
+              className="progress-bar"
+              max={currentChallenge.distanceKM}
+              value={currentProgress}
+            />
+          </label>
+
+          <div className="challenge-statistics">
+            <span>Total distance:</span>
+            <span>{currentChallenge.distanceKM}km</span>
+            <span>Distance Travelled:</span>
+            <span>{currentProgress}km</span>
+            <span>Distance Remaining: </span>
+            <span>
+              ({currentChallenge.distanceKM} - {currentProgress})
+            </span>
+          </div>
+        </div>
         <form onSubmit={handlePostDistance} className="addDistance">
           <label htmlFor="distance entry">
             Post a Distance:
