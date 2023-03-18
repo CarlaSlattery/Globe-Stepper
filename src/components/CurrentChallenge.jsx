@@ -29,11 +29,10 @@ function CurrentChallenge() {
 
   const handlePostDistance = (event) => {
     event.preventDefault();
-    console.log(user);
-    console.log(fields.distance);
     const updatedDistance = fields;
     updatedDistance.UserId = user;
     updatedDistance.ChallengeId = currentChallenge.id;
+    console.log(updatedDistance);
     postDistance(updatedDistance, setAlert);
     setAlert({ message: "", success: false });
   };
