@@ -45,40 +45,39 @@ const UserLogin = () => {
   };
 
   return (
-    <Container maxW="80%">
-      <Box maxW="40%" boxShadow="2xl" p="6" rounded="md" bg="blue.400">
-        <Heading color="white">Login</Heading>
-        <form onSubmit={handleUserLogin}>
+    <Container boxShadow="2xl" p="6" rounded="md" bg="blue.400">
+      <Heading color="white">Login</Heading>
+      <form onSubmit={handleUserLogin}>
+        {error && <Alert status="error">{error}</Alert>}
+        {isSuccess && <Alert status="success">Login successful!</Alert>}
+        <FormControl>
+          <FormLabel>Email:</FormLabel>
+          <Input
+            type="text"
+            name="email"
+            bg="gray.200"
+            value={fields.email}
+            onChange={handleFieldChange}
+          />
+          <FormHelperText color="white">Enter your email.</FormHelperText>
+        </FormControl>
+        <FormControl>
+          <FormLabel>Password</FormLabel>
+          <Input
+            type="password"
+            name="password"
+            bg="gray.200"
+            value={fields.password}
+            onChange={handleFieldChange}
+          />
+          <FormHelperText color="white">Enter password.</FormHelperText>
+        </FormControl>
+        <Button bg="green.300" m="1.5em" type="submit" disabled={isLoading}>
+          {isLoading ? "Logging in..." : "Login"}
           {error && <Alert status="error">{error}</Alert>}
-          {isSuccess && <Alert status="success">Login successful!</Alert>}
-          <FormControl>
-            <FormLabel>Email:</FormLabel>
-            <Input
-              type="text"
-              name="email"
-              bg="gray.200"
-              value={fields.email}
-              onChange={handleFieldChange}
-            />
-            <FormHelperText color="white">Enter your email.</FormHelperText>
-          </FormControl>
-          <FormControl>
-            <FormLabel>Password</FormLabel>
-            <Input
-              type="password"
-              name="password"
-              bg="gray.200"
-              value={fields.password}
-              onChange={handleFieldChange}
-            />
-            <FormHelperText color="white">Enter password.</FormHelperText>
-          </FormControl>
-          <Button bg="green.300" m="1.5em" type="submit" disabled={isLoading}>
-            {isLoading ? "Logging in..." : "Login"}
-            {error && <Alert status="error">{error}</Alert>}
-          </Button>
-        </form>
-      </Box>
+        </Button>
+      </form>
+
       <Box maxW="70%" m="2em">
         <Heading>Not currently a GlobeStepper?</Heading>
         <Text fontSize="xl" m="1em">

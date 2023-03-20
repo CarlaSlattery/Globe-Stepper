@@ -25,7 +25,7 @@ const Navbar = () => {
 
       {user && (
         <div className="logged-in">
-          <span>Welcome, {username}</span>
+          <span>Welcome, {username}!</span>
           <HStack spacing={2}>
             <NavLink to="/userchallenge">
               <Button bg="blue.400" color="white">
