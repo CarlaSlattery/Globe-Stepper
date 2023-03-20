@@ -1,6 +1,16 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import { Image } from "@chakra-ui/react";
+import {
+  Image,
+  Container,
+  Button,
+  Heading,
+  FormControl,
+  Input,
+  FormLabel,
+  Progress,
+  Box,
+} from "@chakra-ui/react";
 import { useAuthContext } from "../hooks/useAuthContext";
 
 // Component import
@@ -68,67 +78,75 @@ function CurrentChallenge() {
   if (!currentChallenge)
     return (
       <div>
-        <h2>You need to join a challenge</h2>
+        <Heading>You need to join a challenge</Heading>
         <h3>
           View the available challenges <Link to="/"> here </Link>
         </h3>
       </div>
     );
   return (
-    <div className="challenge-container">
-      <div className="current-challenge-header">
-        <h2>Your Current Challenge</h2>
-        <h3>{currentChallenge.title}</h3>
-        <Image
-          src={currentChallenge.imageUrl}
-          alt="current-challenge"
-          maxH="270px"
-        />
-        <div className="progress-container">
-          <h3>Progress Tracker</h3>
-          <label htmlFor="progress percentage">
-            Challenge Completion Percentage
-            <progress
-              id="progressPercent"
-              className="progress-bar"
-              max={currentChallenge.distanceKM}
-              value={currentProgress}
-            />
-          </label>
+    <Container
+      borderWidth="3px"
+      borderColor="green.300"
+      display="flex"
+      flexDirection="column"
+    >
+      <Heading>Your Current Challenge</Heading>
+      <Heading>{currentChallenge.title}</Heading>
+      <Image
+        src={currentChallenge.imageUrl}
+        alt="current-challenge"
+        maxH="270px"
+      />
+      <Heading>Progress Tracker</Heading>
+      <FormLabel>Challenge Completion Percentage</FormLabel>
+      <Progress
+        id="progressPercent"
+        size="lg"
+        hasStripe
+        isAnimated
+        value={currentProgress}
+        max={currentChallenge.distanceKM}
+      />
+      <Box display="flex" alignItems="baseline">
+        <Box borderColor="blue.300">
+          <span>Total distance: </span>
+          <span>{currentChallenge.distanceKM}km</span>
+        </Box>
+        <Box>
+          <span>Distance Travelled: </span>
+          <span>{currentProgress}km</span>
+        </Box>
+        <Box>
+          <span>Distance Remaining: </span>
+          {currentChallenge.distanceKM} - {currentProgress}
+        </Box>
+      </Box>
+      <FormControl onSubmit={handlePostDistance}>
+        <Alert message={alert.message} success={alert.success} />
+        <FormLabel>Post a Distance</FormLabel>
 
-          <div className="challenge-statistics">
-            <span>Total distance:</span>
-            <span>{currentChallenge.distanceKM}km</span>
-            <span>Distance Travelled:</span>
-            <span>{currentProgress}km</span>
-            <span>Distance Remaining: </span>
-            <span>
-              ({currentChallenge.distanceKM} - {currentProgress})
-            </span>
-          </div>
-        </div>
-        <form onSubmit={handlePostDistance} className="addDistance">
-          <label htmlFor="distance entry">
-            Post a Distance:
-            <input
-              id="distance"
-              name="distance"
-              type="number"
-              placeholder="0.00"
-              value={fields.distance}
-              onChange={handleFieldChange}
-            />
-          </label>
-          <button className="enter-distance-btn" type="submit">
-            Post
-          </button>
-          <Alert message={alert.message} success={alert.success} />
-        </form>
-      </div>
-      <div className="completed-challenges">
-        <h3>Your Completed Challenges</h3>
-      </div>
-    </div>
+        <Input
+          id="distance"
+          name="distance"
+          type="number"
+          placeholder="0.00"
+          value={fields.distance}
+          onChange={handleFieldChange}
+        />
+
+        <Button
+          bg="green.300"
+          mt="1em"
+          size="lg"
+          loadingText="Posting"
+          type="submit"
+        >
+          Post
+        </Button>
+      </FormControl>
+      <h3>Your Completed Challenges</h3>
+    </Container>
   );
 }
 
