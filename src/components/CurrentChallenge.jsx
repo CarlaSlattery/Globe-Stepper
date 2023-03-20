@@ -121,7 +121,7 @@ function CurrentChallenge() {
         </form>
       </div>
       <div className="completed-challenges">
-        <h3>Your Completed Challenges</h3>
+        <h3>Your Acheivements</h3>
       </div>
     </div>
   );
