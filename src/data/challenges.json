@@ -14,7 +14,7 @@
       "title": "Marathon to Athens",
       "distanceKM": 42,
       "distanceMi": 26,
-      "description": "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Architecto voluptas quis tempore facere libero nisi maxime dignissimos similiqueexercitationem odio ducimus."
+      "description": "Take on the legendary route of the original marathon, inspired from Greek legend."
     },
     {
       "staticId": 3,
@@ -22,16 +22,16 @@
       "title": "Berlin Wall",
       "distanceKM": 155,
       "distanceMi": 96,
-      "description": "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Architecto voluptas quis tempore facere libero nisi maxime dignissimos similiqueexercitationem odio ducimus."
-    }, 
+      "description": "The Berlin Wall takes you on a powerful 30mi (48km) journey through the center of Berlin. What used to be a symbol of a world split in half by the Cold War now is the symbol of freedom, liberty and unity."
+    },
     {
       "staticId": 4,
       "imageUrl": "/great-wall-of-china.jpeg",
       "title": "Great Wall of China",
       "distanceKM": 21196.18,
-      "distanceMi": 13170.70,
+      "distanceMi": 13170.7,
       "description": "The Great Wall of China is a series of fortifications that were built across the historical northern borders of ancient Chinese states."
-    }, 
+    },
     {
       "staticId": 5,
       "imageUrl": "/great-barrier-reef.jpg",
@@ -39,7 +39,7 @@
       "distanceKM": 2300,
       "distanceMi": 1400,
       "description": "The Great Barrier Reef is the world's largest coral reef system composed of over 2,900 individual reefs and 900 islands."
-    }, 
+    },
     {
       "staticId": 6,
       "imageUrl": "/wales-coast-path.jpg",
@@ -47,7 +47,7 @@
       "distanceKM": 1400,
       "distanceMi": 870,
       "description": "The Wales Coast Path is a designated long-distance trail which follows, or runs close to, the coastline of Wales."
-    }, 
+    },
     {
       "staticId": 7,
       "imageUrl": "/route-66.jpg",
@@ -55,7 +55,7 @@
       "distanceKM": 3669,
       "distanceMi": 2280,
       "description": "U.S. Route 66 or U.S. Highway 66 was one of the original highways in the United States Numbered Highway System."
-    }, 
+    },
     {
       "staticId": 8,
       "imageUrl": "/equator.jpg",

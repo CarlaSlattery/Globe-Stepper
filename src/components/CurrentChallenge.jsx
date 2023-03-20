@@ -5,9 +5,6 @@ import { useAuthContext } from "../hooks/useAuthContext";
 // Component import
 import postDistance from "../requests/postDistance";
 import Alert from "./Alert";
-
-// Imported styling
-import "../styles/current-challenge.css";
 import getChallenge from "../requests/getChallenge";
 import getProgress from "../requests/getProgress";
 

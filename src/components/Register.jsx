@@ -1,5 +1,13 @@
 import React, { useState } from "react";
-import "../styles/Register.css";
+// import "../styles/Register.css";
+import {
+  Heading,
+  FormControl,
+  FormLabel,
+  Input,
+  Button,
+  Container,
+} from "@chakra-ui/react";
 import Alert from "./Alert";
 import registerUser from "../requests/registerUser";
 
@@ -32,57 +40,75 @@ function Register() {
   };
 
   return (
-    <div className="register-form">
-      <div className="register-header">
-        <h3>Sign up to start a challenge!</h3>
-      </div>
+    <Container bg="blue.400" box-shadow="2xl" rounded="md">
+      <Heading color="white" p="0.5em">
+        Sign up to start a challenge!
+      </Heading>
+
       <form onSubmit={handleRegister} className="login">
-        <Alert message={alert.message} success={alert.isSuccess} />
-        <label htmlFor="email">
-          Email:
-          <input
+        <FormControl>
+          <Alert message={alert.message} success={alert.isSuccess} />
+          <FormLabel m="0.75em" color="white" fontWeight="bold">
+            Email
+          </FormLabel>
+
+          <Input
             type="email"
             name="email"
+            bg="gray.200"
             value={fields.email}
             onChange={handleFieldChange}
             placeholder="Enter your email"
           />
-        </label>
-        <label htmlFor="username">
-          Username:
-          <input
+        </FormControl>
+        <FormControl>
+          <FormLabel m="0.75em" color="white" fontWeight="bold">
+            Username
+          </FormLabel>
+
+          <Input
             type="text"
             name="username"
+            bg="gray.200"
             value={fields.username}
             onChange={handleFieldChange}
             placeholder="username"
           />
-        </label>
-        <label htmlFor="password">
-          Password:
-          <input
+        </FormControl>
+        <FormControl>
+          <FormLabel m="0.75em" color="white" fontWeight="bold">
+            Password
+          </FormLabel>
+
+          <Input
             type="password"
             name="password"
+            bg="gray.200"
             value={fields.password}
             onChange={handleFieldChange}
             placeholder="enter password"
           />
-        </label>
-        <label htmlFor="password-confirmation">
-          Confirm Password:
-          <input
+        </FormControl>
+        <FormControl>
+          <FormLabel m="0.75em" color="white" fontWeight="bold">
+            Confirm Password
+          </FormLabel>
+
+          <Input
             type="password"
             name="password"
+            bg="gray.200"
             value={fields.password}
             onChange={handleFieldChange}
             placeholder="enter password"
           />
-        </label>
-        <button id="register" className="register" type="submit">
-          Register Me
-        </button>
+
+          <Button id="register" type="submit" m="1.5em" bg="green.300">
+            Register Me
+          </Button>
+        </FormControl>
       </form>
-    </div>
+    </Container>
   );
 }
 

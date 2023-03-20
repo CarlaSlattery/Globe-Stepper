@@ -1,13 +1,27 @@
 /* eslint-disable react/function-component-definition */
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+// eslint-disable-next-line prettier/prettier
+import {
+  Box,
+  Heading,
+  FormControl,
+  FormLabel,
+  Input,
+  FormHelperText,
+  Text,
+  Button,
+  Alert,
+  Link,
+  Container,
+} from "@chakra-ui/react";
+import { Link as ReactRouter } from "react-router-dom";
 import { useLogin } from "../hooks/useLogin";
 // component imports
 
 // import loginUser from "../requests/loginUser";
 
 // style import
-import "../styles/Login.css";
+// import "../styles/Login.css";
 
 const UserLogin = () => {
   const initialState = {
@@ -31,52 +45,49 @@ const UserLogin = () => {
   };
 
   return (
-    <>
-      <div className="login-container">
-        <div className="login-header">
-          <h2>Please login</h2>
-        </div>
-        <form onSubmit={handleUserLogin} className="login-form">
-          {error && <div>{error}</div>}
-          {isSuccess && <div>Login successful!</div>}
-          <label htmlFor="email">
-            Email:
-            <input
-              type="email"
-              name="email"
-              value={fields.email}
-              onChange={handleFieldChange}
-              placeholder="Enter your email"
-            />
-          </label>
-          <label htmlFor="password">
-            Password:
-            <input
-              type="password"
-              name="password"
-              value={fields.password}
-              onChange={handleFieldChange}
-              placeholder="enter password"
-              autoComplete="on"
-            />
-          </label>
-          {alert.message && <span className="form-error">{alert.message}</span>}
-          <button type="submit" disabled={isLoading} className="login-button">
-            {error && <div className="error">{error}</div>}
-            Login
-          </button>
-        </form>
-      </div>
-      <div className="register-prompt">
-        <h3>Not currently a GlobeStepper?</h3>
-        <h4>
+    <Container boxShadow="2xl" p="6" rounded="md" bg="blue.400">
+      <Heading color="white">Login</Heading>
+      <form onSubmit={handleUserLogin}>
+        {error && <Alert status="error">{error}</Alert>}
+        {isSuccess && <Alert status="success">Login successful!</Alert>}
+        <FormControl>
+          <FormLabel>Email:</FormLabel>
+          <Input
+            type="text"
+            name="email"
+            bg="gray.200"
+            value={fields.email}
+            onChange={handleFieldChange}
+          />
+          <FormHelperText color="white">Enter your email.</FormHelperText>
+        </FormControl>
+        <FormControl>
+          <FormLabel>Password</FormLabel>
+          <Input
+            type="password"
+            name="password"
+            bg="gray.200"
+            value={fields.password}
+            onChange={handleFieldChange}
+          />
+          <FormHelperText color="white">Enter password.</FormHelperText>
+        </FormControl>
+        <Button bg="green.300" m="1.5em" type="submit" disabled={isLoading}>
+          {isLoading ? "Logging in..." : "Login"}
+          {error && <Alert status="error">{error}</Alert>}
+        </Button>
+      </form>
+
+      <Box maxW="70%" m="2em">
+        <Heading>Not currently a GlobeStepper?</Heading>
+        <Text fontSize="xl" m="1em">
           Then come and join us{" "}
-          <Link to="/register" className="register-link">
+          <Link as={ReactRouter} to="/register">
             here.
           </Link>
-        </h4>
-      </div>
-    </>
+        </Text>
+      </Box>
+    </Container>
   );
 };
 

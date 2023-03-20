@@ -1,4 +1,5 @@
 import React from "react";
+
 // eslint-disable-next-line import/no-extraneous-dependencies
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 // import { useAuthContext } from "../hooks/useAuthContext";
@@ -11,9 +12,8 @@ import Register from "./Register";
 import CurrentChallenge from "./CurrentChallenge";
 
 // Style imports
-import "../styles/App.css";
-import "../styles/navbar-roots.css";
-import "../styles/home.css";
+// import "../styles/App.css";
+// import "../styles/navbar-roots.css";
 
 function App() {
   // const { user } = useAuthContext();
