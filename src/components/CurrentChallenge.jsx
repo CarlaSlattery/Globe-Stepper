@@ -1,13 +1,12 @@
 import React, { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 import { useAuthContext } from "../hooks/useAuthContext";
 
 // Component import
 import postDistance from "../requests/postDistance";
 import Alert from "./Alert";
 import getChallenge from "../requests/getChallenge";
-
-// Imported styling
-// import "../styles/current-challenge.css";
+import getProgress from "../requests/getProgress";
 
 function CurrentChallenge() {
   const { user } = useAuthContext();
@@ -25,13 +24,14 @@ function CurrentChallenge() {
   const [fields, setFields] = useState(initialState.fields);
   const [alert, setAlert] = useState(initialState.alert);
   const [currentChallenge, setCurrentChallenge] = useState(null);
+  const [currentProgress, setCurrentProgress] = useState(null);
 
   const handlePostDistance = (event) => {
     event.preventDefault();
-    console.log(user);
-    console.log(fields.distance);
     const updatedDistance = fields;
     updatedDistance.UserId = user;
+    updatedDistance.ChallengeId = currentChallenge.id;
+    console.log(updatedDistance);
     postDistance(updatedDistance, setAlert);
     setAlert({ message: "", success: false });
   };
@@ -48,7 +48,31 @@ function CurrentChallenge() {
     });
   }, [user]);
 
-  if (!currentChallenge) return <p>Loading</p>;
+  useEffect(() => {
+    getProgress(user).then((response) => {
+      const distance = response.data.map((data) => data.distance);
+      console.log(distance);
+      const distanceNum = distance.map((str) => {
+        return parseInt(str, 10);
+      });
+      console.log(distanceNum);
+
+      const distanceTotal = distanceNum.reduce((acc, value) => acc + value);
+      console.log(distanceTotal);
+      setCurrentProgress(distanceTotal);
+      return currentProgress;
+    });
+  }, [user, currentProgress]);
+
+  if (!currentChallenge)
+    return (
+      <div>
+        <h2>You need to join a challenge</h2>
+        <h3>
+          View the available challenges <Link to="/"> here </Link>
+        </h3>
+      </div>
+    );
   return (
     <div className="challenge-container">
       <div className="current-challenge-header">
@@ -62,41 +86,42 @@ function CurrentChallenge() {
             <progress
               id="progressPercent"
               className="progress-bar"
-              max="100"
-              value="65"
-            >
-              35%
-            </progress>
+              max={currentChallenge.distanceKM}
+              value={currentProgress}
+            />
           </label>
 
           <div className="challenge-statistics">
+            <span>Total distance:</span>
+            <span>{currentChallenge.distanceKM}km</span>
             <span>Distance Travelled:</span>
-            <span>76km</span>
+            <span>{currentProgress}km</span>
             <span>Distance Remaining: </span>
-            <span>41km</span>
+            <span>
+              ({currentChallenge.distanceKM} - {currentProgress})
+            </span>
           </div>
-
-          <form onSubmit={handlePostDistance} className="addDistance">
-            <label htmlFor="distance entry">
-              Post a Distance:
-              <input
-                id="distance"
-                name="distance"
-                type="number"
-                placeholder="0.00"
-                value={fields.distance}
-                onChange={handleFieldChange}
-              />
-            </label>
-            <button className="enter-distance-btn" type="submit">
-              Post
-            </button>
-            <Alert message={alert.message} success={alert.success} />
-          </form>
         </div>
-        <div className="completed-challenges">
-          <h3>Your Completed Challenges</h3>
-        </div>
+        <form onSubmit={handlePostDistance} className="addDistance">
+          <label htmlFor="distance entry">
+            Post a Distance:
+            <input
+              id="distance"
+              name="distance"
+              type="number"
+              placeholder="0.00"
+              value={fields.distance}
+              onChange={handleFieldChange}
+            />
+          </label>
+          <button className="enter-distance-btn" type="submit">
+            Post
+          </button>
+          <Alert message={alert.message} success={alert.success} />
+        </form>
+      </div>
+      <div className="completed-challenges">
+        <h3>Your Completed Challenges</h3>
       </div>
     </div>
   );
