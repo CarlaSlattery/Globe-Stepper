@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import { Image } from "@chakra-ui/react";
 import { useAuthContext } from "../hooks/useAuthContext";
 
 // Component import
@@ -78,7 +79,11 @@ function CurrentChallenge() {
       <div className="current-challenge-header">
         <h2>Your Current Challenge</h2>
         <h3>{currentChallenge.title}</h3>
-        <img src={currentChallenge.imageUrl} alt="current-challenge" />
+        <Image
+          src={currentChallenge.imageUrl}
+          alt="current-challenge"
+          maxH="270px"
+        />
         <div className="progress-container">
           <h3>Progress Tracker</h3>
           <label htmlFor="progress percentage">
