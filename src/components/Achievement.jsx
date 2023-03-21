@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 import { useAuthContext } from "../hooks/useAuthContext";
 import getProgress from "../requests/getProgress";
 import Alert from "./Alert";
@@ -26,6 +27,15 @@ function Achievement() {
     });
   }, [user]);
 
+  if (!user)
+    return (
+      <div>
+        <h2>You need to join a challenge</h2>
+        <h3>
+          View the available challenges <Link to="/"> here </Link>
+        </h3>
+      </div>
+    );
   return (
     <div className="achievements">
       <Alert message={alert.message} />

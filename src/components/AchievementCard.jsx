@@ -5,6 +5,7 @@ import { useAuthContext } from "../hooks/useAuthContext";
 
 function AchievementCards({ distance, createdAt }) {
   const { user } = useAuthContext();
+
   if (!user)
     return (
       <div>
@@ -14,13 +15,13 @@ function AchievementCards({ distance, createdAt }) {
         </h3>
       </div>
     );
+
   return (
     <div className="achievement-container">
       <div className="achievement-items">
         <div className="card-content">
-          <h3 className="card-title">Your Achievements</h3>
-          <p className="card-distances">{distance} Km</p>
-          <p className="card-description">{createdAt}</p>
+          <p className="card-distances">Distance: {distance} Km</p>
+          <p className="card-date">When: {createdAt.substring(0, 10)}</p>
         </div>
       </div>
     </div>
