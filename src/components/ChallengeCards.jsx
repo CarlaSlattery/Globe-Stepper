@@ -40,8 +40,7 @@ function ChallengeCard({ challenge }) {
       setError("You must be logged in");
       return;
     }
-    console.log(user);
-    console.log(challenge);
+
     const updatedChallenge = challenge;
     updatedChallenge.UserId = user;
     selectChallenge({ updatedChallenge });
@@ -50,8 +49,6 @@ function ChallengeCard({ challenge }) {
       message: "Challenge joined successfully - good luck!",
       success: true,
     }));
-
-    console.log(event);
   };
 
   return (

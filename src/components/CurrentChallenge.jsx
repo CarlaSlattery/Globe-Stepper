@@ -42,7 +42,7 @@ function CurrentChallenge() {
     const updatedDistance = fields;
     updatedDistance.UserId = user;
     updatedDistance.ChallengeId = currentChallenge.id;
-    console.log(updatedDistance);
+
     postDistance(updatedDistance, setAlert);
     setAlert({ message: "", success: false });
   };
@@ -54,7 +54,6 @@ function CurrentChallenge() {
 
   useEffect(() => {
     getChallenge(user).then((response) => {
-      console.log(response.data);
       setCurrentChallenge(response.data[0]);
     });
   }, [user]);
@@ -62,14 +61,13 @@ function CurrentChallenge() {
   useEffect(() => {
     getProgress(user).then((response) => {
       const distance = response.data.map((data) => data.distance);
-      console.log(distance);
+
       const distanceNum = distance.map((str) => {
         return parseInt(str, 10);
       });
-      console.log(distanceNum);
 
       const distanceTotal = distanceNum.reduce((acc, value) => acc + value);
-      console.log(distanceTotal);
+
       setCurrentProgress(distanceTotal);
       return currentProgress;
     });
