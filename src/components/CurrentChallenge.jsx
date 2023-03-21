@@ -26,8 +26,7 @@ function CurrentChallenge() {
   const [currentChallenge, setCurrentChallenge] = useState(null);
   const [currentProgress, setCurrentProgress] = useState(null);
 
-  const handlePostDistance = (event) => {
-    event.preventDefault();
+  const handlePostDistance = () => {
     const updatedDistance = fields;
     updatedDistance.UserId = user;
     updatedDistance.ChallengeId = currentChallenge.id;
@@ -97,9 +96,7 @@ function CurrentChallenge() {
             <span>Distance Travelled:</span>
             <span>{currentProgress}km</span>
             <span>Distance Remaining: </span>
-            <span>
-              ({currentChallenge.distanceKM} - {currentProgress})
-            </span>
+            <span>{currentChallenge.distanceKM - currentProgress}</span>
           </div>
         </div>
         <form onSubmit={handlePostDistance} className="addDistance">
