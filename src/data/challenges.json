@@ -6,7 +6,7 @@
       "title": "Hadrians Wall",
       "distanceKM": 117,
       "distanceMi": 73,
-      "description": "A UNESCO world heritage site, Hadrians wall is a 73 mile path across northern England."
+      "description": "A UNESCO world heritage site, Hadrians wall is a 73 mile path across northern England, from Newcastle upon Tyne to the coast of Cumbria."
     },
     {
       "staticId": 2,
@@ -14,7 +14,7 @@
       "title": "Marathon to Athens",
       "distanceKM": 42,
       "distanceMi": 26,
-      "description": "Take on the legendary route of the original marathon, inspired from Greek legend."
+      "description": "Take on the legendary 26 mile route of the original marathon, inspired by a Greek legend dating back to 490BC. "
     },
     {
       "staticId": 3,
@@ -22,7 +22,7 @@
       "title": "Berlin Wall",
       "distanceKM": 155,
       "distanceMi": 96,
-      "description": "The Berlin Wall takes you on a powerful 30mi (48km) journey through the center of Berlin. What used to be a symbol of a world split in half by the Cold War now is the symbol of freedom, liberty and unity."
+      "description": "Built during the Cold War, the Berlin Wall takes you on a powerful 30mi (48km) journey through the center of the city."
     },
     {
       "staticId": 4,
