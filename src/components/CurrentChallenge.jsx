@@ -1,5 +1,17 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import {
+  Container,
+  Heading,
+  Text,
+  Image,
+  FormLabel,
+  Progress,
+  Box,
+  Button,
+  Input,
+  FormControl,
+} from "@chakra-ui/react";
 import { useAuthContext } from "../hooks/useAuthContext";
 
 // Component import
@@ -67,63 +79,171 @@ function CurrentChallenge() {
   if (!currentChallenge)
     return (
       <div>
-        <h2>You need to join a challenge</h2>
-        <h3>
+        <Heading mt="0.5em">You need to join a challenge</Heading>
+        <Text>
           View the available challenges <Link to="/"> here </Link>
-        </h3>
+        </Text>
       </div>
     );
   return (
-    <div className="challenge-container">
-      <div className="current-challenge-header">
-        <h2>Your Current Challenge</h2>
-        <h3>{currentChallenge.title}</h3>
-        <img src={currentChallenge.imageUrl} alt="current-challenge" />
-        <div className="progress-container">
-          <h3>Progress Tracker</h3>
-          <label htmlFor="progress percentage">
-            Challenge Completion Percentage
-            <progress
-              id="progressPercent"
-              className="progress-bar"
-              max={currentChallenge.distanceKM}
-              value={currentProgress}
-            />
-          </label>
+    <Container display="flex" flexDirection="column" maxW="70%">
+      <Heading align="center" mt="0.5em" bg="green.300" p="0.25em">
+        Your Current Challenge
+      </Heading>
+      <Heading align="center" color="blue.400" p="0.25em">
+        {currentChallenge.title}
+      </Heading>
+      <Image
+        src={currentChallenge.imageUrl}
+        alt="current-challenge"
+        maxH="270px"
+      />
 
-          <div className="challenge-statistics">
-            <span>Total distance:</span>
-            <span>{currentChallenge.distanceKM}km</span>
-            <span>Distance Travelled:</span>
-            <span>{currentProgress}km</span>
-            <span>Distance Remaining: </span>
-            <span>
-              ({currentChallenge.distanceKM} - {currentProgress})
-            </span>
-          </div>
-        </div>
-        <form onSubmit={handlePostDistance} className="addDistance">
-          <label htmlFor="distance entry">
-            Post a Distance:
-            <input
-              id="distance"
-              name="distance"
-              type="number"
-              placeholder="0.00"
-              value={fields.distance}
-              onChange={handleFieldChange}
-            />
-          </label>
-          <button className="enter-distance-btn" type="submit">
-            Post
-          </button>
-          <Alert message={alert.message} success={alert.success} />
-        </form>
-      </div>
-      <div className="completed-challenges">
-        <h3>Your Completed Challenges</h3>
-      </div>
-    </div>
+      <Heading mt="0.5em" align="center">
+        Progress Tracker
+      </Heading>
+      <FormLabel fontSize="lg" mt="0.4em">
+        Challenge Completion Percentage
+        <Progress
+          id="progressPercent"
+          size="lg"
+          mt="1em"
+          mb="1.25em"
+          height="3em"
+          hasStripe
+          isAnimated
+          max={currentChallenge.distanceKM}
+          value={currentProgress}
+        />
+      </FormLabel>
+      <Box
+        display="flex"
+        alignItems="center"
+        justifyContent="space-around"
+        mb="1em"
+      >
+        <Box
+          border="2px solid"
+          borderColor="gray.300"
+          padding="1em"
+          bg="green.300"
+          borderRadius="5px"
+        >
+          <Text
+            pb="0.25em"
+            mt="0"
+            fontSize="lg"
+            fontWeight="bold"
+            letterSpacing="0.1rem"
+          >
+            Total distance:
+          </Text>
+          <Text
+            bgColor="blue.100"
+            padding="1em"
+            fontSize="lg"
+            fontWeight="bold"
+            letterSpacing="0.1rem"
+          >
+            {currentChallenge.distanceKM} km
+          </Text>
+        </Box>
+        <Box
+          border="2px solid"
+          borderColor="gray.300"
+          padding="1em"
+          bg="green.300"
+          borderRadius="5px"
+        >
+          <Text
+            pb="0.25em"
+            mt="0"
+            fontSize="lg"
+            fontWeight="bold"
+            letterSpacing="0.1rem"
+          >
+            Distance Travelled:
+          </Text>
+          <Text
+            bgColor="blue.100"
+            padding="1em"
+            fontSize="lg"
+            fontWeight="bold"
+            letterSpacing="0.1rem"
+          >
+            {currentProgress} Km
+          </Text>
+        </Box>
+        <Box
+          border="2px solid"
+          borderColor="gray.300"
+          padding="1em"
+          bg="green.300"
+          borderRadius="5px"
+        >
+          <Text
+            pb="0.25em"
+            mt="0"
+            fontSize="lg"
+            fontWeight="bold"
+            letterSpacing="0.1rem"
+          >
+            Distance Remaining:{" "}
+          </Text>
+          <Text
+            bgColor="blue.100"
+            padding="1em"
+            fontSize="lg"
+            fontWeight="bold"
+            letterSpacing="0.1rem"
+          >
+            ({currentChallenge.distanceKM} - {currentProgress})
+          </Text>
+        </Box>
+      </Box>
+      <Box display="flex" flexDirection="row" bg="blue.300" borderRadius="5px">
+        <FormControl align="center">
+          <form onSubmit={handlePostDistance} className="addDistance">
+            <FormLabel paddingTop="1em" paddingLeft="1em" fontSize="lg">
+              Post a Distance:
+              <Input
+                id="distance"
+                name="distance"
+                type="number"
+                placeholder="0.00"
+                value={fields.distance}
+                onChange={handleFieldChange}
+                maxW="50%"
+                ml="3em"
+                bg="gray.200"
+              />
+            </FormLabel>
+            <Button
+              bg="green.300"
+              mt="1em"
+              mb="1em"
+              size="lg"
+              type="submit"
+              pl="3em"
+              pr="3em"
+            >
+              Post
+            </Button>
+            <Alert message={alert.message} success={alert.success} />
+          </form>
+        </FormControl>
+      </Box>
+      <Box
+        border="2px solid"
+        borderColor="blue.300"
+        padding="1em"
+        mt="1.5em"
+        mb="3em"
+      >
+        <Heading>Your Completed Challenges</Heading>
+        <Text>See your finished challenges and achievements here!</Text>
+      </Box>
+    </Container>
   );
 }
 
