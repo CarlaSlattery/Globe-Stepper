@@ -55,10 +55,29 @@ function ChallengeCard({ challenge }) {
   };
 
   return (
-    <Flex>
-      <Card key={challenge.id} align="center" bg="gray.200">
-        <CardBody>
-          <Image src={challenge.imageUrl} alt={challenge.title} maxH="270px" />
+    <Flex alignItems="stretch" justifyContent="center" flexWrap="wrap">
+      <Card
+        key={challenge.id}
+        align="center"
+        bg="gray.200"
+        flexBasis={{ base: "100%", md: "50%", lg: "33.33%" }}
+        flexGrow="1"
+        p={2}
+        minH="450px"
+      >
+        <CardBody
+          display="flex"
+          flexDirection="column"
+          justifyContent="space-between"
+          flexGrow="1"
+        >
+          <Image
+            src={challenge.imageUrl}
+            alt={challenge.title}
+            h="200px"
+            w="100%"
+            objectFit="cover"
+          />
 
           <Heading p=".2em" className="card-title">
             {challenge.title}
@@ -67,7 +86,7 @@ function ChallengeCard({ challenge }) {
             {challenge.distanceKM} Km / {challenge.distanceMi} Miles
           </Text>
           <Divider borderColor="blue.400" borderWidth="3px" />
-          <Text p="0.5em" className="card-description">
+          <Text p="0.5em" className="card-description" flexGrow="1">
             {challenge.description}
           </Text>
           <Button
