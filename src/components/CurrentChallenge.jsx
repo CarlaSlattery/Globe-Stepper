@@ -1,15 +1,16 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import {
-  Image,
   Container,
-  Button,
   Heading,
-  FormControl,
-  Input,
+  Text,
+  Image,
   FormLabel,
   Progress,
   Box,
+  Button,
+  Input,
+  FormControl,
 } from "@chakra-ui/react";
 import { useAuthContext } from "../hooks/useAuthContext";
 
@@ -78,74 +79,170 @@ function CurrentChallenge() {
   if (!currentChallenge)
     return (
       <div>
-        <Heading>You need to join a challenge</Heading>
-        <h3>
+        <Heading mt="0.5em">You need to join a challenge</Heading>
+        <Text>
           View the available challenges <Link to="/"> here </Link>
-        </h3>
+        </Text>
       </div>
     );
   return (
-    <Container
-      borderWidth="3px"
-      borderColor="green.300"
-      display="flex"
-      flexDirection="column"
-    >
-      <Heading>Your Current Challenge</Heading>
-      <Heading>{currentChallenge.title}</Heading>
+    <Container display="flex" flexDirection="column" maxW="70%">
+      <Heading align="center" mt="0.5em" bg="green.300" p="0.25em">
+        Your Current Challenge
+      </Heading>
+      <Heading align="center" color="blue.400" p="0.25em">
+        {currentChallenge.title}
+      </Heading>
       <Image
         src={currentChallenge.imageUrl}
         alt="current-challenge"
         maxH="270px"
       />
-      <Heading>Progress Tracker</Heading>
-      <FormLabel>Challenge Completion Percentage</FormLabel>
-      <Progress
-        id="progressPercent"
-        size="lg"
-        hasStripe
-        isAnimated
-        value={currentProgress}
-        max={currentChallenge.distanceKM}
-      />
-      <Box display="flex" alignItems="baseline">
-        <Box borderColor="blue.300">
-          <span>Total distance: </span>
-          <span>{currentChallenge.distanceKM}km</span>
+
+      <Heading mt="0.5em" align="center">
+        Progress Tracker
+      </Heading>
+      <FormLabel fontSize="lg" mt="0.4em">
+        Challenge Completion Percentage
+        <Progress
+          id="progressPercent"
+          size="lg"
+          mt="1em"
+          mb="1.25em"
+          height="3em"
+          hasStripe
+          isAnimated
+          max={currentChallenge.distanceKM}
+          value={currentProgress}
+        />
+      </FormLabel>
+      <Box
+        display="flex"
+        alignItems="center"
+        justifyContent="space-around"
+        mb="1em"
+      >
+        <Box
+          border="2px solid"
+          borderColor="gray.300"
+          padding="1em"
+          bg="green.300"
+          borderRadius="5px"
+        >
+          <Text
+            pb="0.25em"
+            mt="0"
+            fontSize="lg"
+            fontWeight="bold"
+            letterSpacing="0.1rem"
+          >
+            Total distance:
+          </Text>
+          <Text
+            bgColor="blue.100"
+            padding="1em"
+            fontSize="lg"
+            fontWeight="bold"
+            letterSpacing="0.1rem"
+          >
+            {currentChallenge.distanceKM} km
+          </Text>
         </Box>
-        <Box>
-          <span>Distance Travelled: </span>
-          <span>{currentProgress}km</span>
+        <Box
+          border="2px solid"
+          borderColor="gray.300"
+          padding="1em"
+          bg="green.300"
+          borderRadius="5px"
+        >
+          <Text
+            pb="0.25em"
+            mt="0"
+            fontSize="lg"
+            fontWeight="bold"
+            letterSpacing="0.1rem"
+          >
+            Distance Travelled:
+          </Text>
+          <Text
+            bgColor="blue.100"
+            padding="1em"
+            fontSize="lg"
+            fontWeight="bold"
+            letterSpacing="0.1rem"
+          >
+            {currentProgress} Km
+          </Text>
         </Box>
-        <Box>
-          <span>Distance Remaining: </span>
-          {currentChallenge.distanceKM} - {currentProgress}
+        <Box
+          border="2px solid"
+          borderColor="gray.300"
+          padding="1em"
+          bg="green.300"
+          borderRadius="5px"
+        >
+          <Text
+            pb="0.25em"
+            mt="0"
+            fontSize="lg"
+            fontWeight="bold"
+            letterSpacing="0.1rem"
+          >
+            Distance Remaining:{" "}
+          </Text>
+          <Text
+            bgColor="blue.100"
+            padding="1em"
+            fontSize="lg"
+            fontWeight="bold"
+            letterSpacing="0.1rem"
+          >
+            ({currentChallenge.distanceKM} - {currentProgress})
+          </Text>
         </Box>
       </Box>
-      <FormControl onSubmit={handlePostDistance}>
-        <Alert message={alert.message} success={alert.success} />
-        <FormLabel>Post a Distance</FormLabel>
-
-        <Input
-          id="distance"
-          name="distance"
-          type="number"
-          placeholder="0.00"
-          value={fields.distance}
-          onChange={handleFieldChange}
-        />
-
-        <Button
-          bg="green.300"
-          mt="1em"
-          size="lg"
-          loadingText="Posting"
-          type="submit"
-        >
-          Post
-        </Button>
-      </FormControl>
-      <h3>Your Completed Challenges</h3>
+      <Box display="flex" flexDirection="row" bg="blue.300" borderRadius="5px">
+        <FormControl align="center">
+          <form onSubmit={handlePostDistance} className="addDistance">
+            <FormLabel paddingTop="1em" paddingLeft="1em" fontSize="lg">
+              Post a Distance:
+              <Input
+                id="distance"
+                name="distance"
+                type="number"
+                placeholder="0.00"
+                value={fields.distance}
+                onChange={handleFieldChange}
+                maxW="50%"
+                ml="3em"
+                bg="gray.200"
+              />
+            </FormLabel>
+            <Button
+              bg="green.300"
+              mt="1em"
+              mb="1em"
+              size="lg"
+              type="submit"
+              pl="3em"
+              pr="3em"
+            >
+              Post
+            </Button>
+            <Alert message={alert.message} success={alert.success} />
+          </form>
+        </FormControl>
+      </Box>
+      <Box
+        border="2px solid"
+        borderColor="blue.300"
+        padding="1em"
+        mt="1.5em"
+        mb="3em"
+      >
+        <Heading>Your Completed Challenges</Heading>
+        <Text>See your finished challenges and achievements here!</Text>
+      </Box>
     </Container>
   );
 }
