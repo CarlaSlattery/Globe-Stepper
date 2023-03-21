@@ -1,5 +1,13 @@
 import React from "react";
-import { Flex, Button, Heading, Spacer, HStack, Image } from "@chakra-ui/react";
+import {
+  Flex,
+  Button,
+  Heading,
+  Spacer,
+  HStack,
+  Image,
+  Text,
+} from "@chakra-ui/react";
 import { NavLink } from "react-router-dom";
 import { useLogout } from "../hooks/useLogout";
 
@@ -25,7 +33,9 @@ const Navbar = () => {
 
       {user && (
         <div className="logged-in">
-          <span>Welcome, {username}!</span>
+          <Text fontWeight="bold" p="0.25em">
+            Welcome, {username}!
+          </Text>
           <HStack spacing={2}>
             <NavLink to="/userchallenge">
               <Button bg="blue.400" color="white">
