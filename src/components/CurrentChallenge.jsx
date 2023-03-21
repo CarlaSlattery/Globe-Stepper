@@ -170,7 +170,7 @@ function CurrentChallenge() {
             fontWeight="bold"
             letterSpacing="0.1rem"
           >
-            {currentProgress} Km
+            {currentProgress} km
           </Text>
         </Box>
         <Box
@@ -196,7 +196,7 @@ function CurrentChallenge() {
             fontWeight="bold"
             letterSpacing="0.1rem"
           >
-            ({currentChallenge.distanceKM - currentProgress})
+            {currentChallenge.distanceKM - currentProgress} km
           </Text>
         </Box>
       </Box>
