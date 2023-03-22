@@ -139,8 +139,9 @@ function CurrentChallenge() {
           </Text>
           <Text
             bgColor="blue.100"
-            padding="1em"
-            fontSize="lg"
+            padding="0.25em"
+            align="center"
+            fontSize={32}
             fontWeight="bold"
             letterSpacing="0.1rem"
           >
@@ -165,8 +166,9 @@ function CurrentChallenge() {
           </Text>
           <Text
             bgColor="blue.100"
-            padding="1em"
-            fontSize="lg"
+            padding="0.25em"
+            align="center"
+            fontSize={32}
             fontWeight="bold"
             letterSpacing="0.1rem"
           >
@@ -191,12 +193,15 @@ function CurrentChallenge() {
           </Text>
           <Text
             bgColor="blue.100"
-            padding="1em"
-            fontSize="lg"
+            padding="0.25em"
+            align="center"
+            fontSize={32}
             fontWeight="bold"
             letterSpacing="0.1rem"
           >
-            ({currentChallenge.distanceKM - currentProgress})
+
+            ({currentChallenge.distanceKM} - {currentProgress}) Km
+
           </Text>
         </Box>
       </Box>
