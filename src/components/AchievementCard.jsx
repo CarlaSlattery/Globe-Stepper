@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import PropTypes from "prop-types";
+import { Table, Th, Tr, Td, Thead } from "@chakra-ui/react";
 import { useAuthContext } from "../hooks/useAuthContext";
 
 function AchievementCards({ distance, createdAt }) {
@@ -17,14 +18,18 @@ function AchievementCards({ distance, createdAt }) {
     );
 
   return (
-    <div className="achievement-container">
-      <div className="achievement-items">
-        <div className="card-content">
-          <p className="card-distances">Distance: {distance} Km</p>
-          <p className="card-date">When: {createdAt.substring(0, 10)}</p>
-        </div>
-      </div>
-    </div>
+    <Table variant="striped" colorScheme="blue" size="sm">
+      <Thead>
+        <Tr>
+          <Th>Distance</Th>
+          <Th>Date</Th>
+        </Tr>
+      </Thead>
+      <Tr>
+        <Td>{distance}</Td>
+        <Td>{createdAt.substring(0, 10)}</Td>
+      </Tr>
+    </Table>
   );
 }
 
