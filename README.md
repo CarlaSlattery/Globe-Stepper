@@ -1,72 +1,48 @@
 <p align="center"><img height="200" src="https://github.com/CarlaSlattery/Globe-Stepper/blob/main/src/assets/GlobeStepper.png"> </p>
 
-# Getting Started with Create React App
+# Globe-Stepper API
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Introduction
+This is part of a full stack CRUD Api, built in partnership with [Deryn Rushworth](https://github.com/derynruah) for our final project for our [CommandShift](https://www.commandshift.co/) bootcamp. It has been designed to build upon the everyday use of distance trackers but allows users to challenge themselves and track their progress against the distances of famous walks around the globe. Users are required to register so that they have their own account where they can visit their dashboard to update their progress and view their dashboard with stats and achievements.
+Currently the stats information is working but further development is required to ensure achievements are fully working.
 
-## Available Scripts
+## Technologies used
+The front-end of the project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app), and this was my first attempt at using a component library for styling, for which I chose [Chakra UI](https://chakra-ui.com/).
 
-In the project directory, you can run:
+[Express](https://expressjs.com/) and [Sequelize ORM](https://sequelize.org/docs/v6/getting-started/) were used in a [NodeJS](https://nodejs.org/en) environment to connect with a postgresSQL database containing all user data and they were authenticated in the app using [JSONwebtokens](https://jwt.io/).
 
-### `npm start`
+The backend repository can be found [here](https://github.com/derynruah/globe-stepper-backend).
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## Dependencies
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+- React-Router-Dom v6.8
+- React proptypes
+- React testing library
+- Axios
+- ChakraUI
+- json-loader
 
-### `npm test`
+## Installation
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+1. In your chosen directory you can clone the repository using `git clone <repoURL>`
+2. Install all dependencies using `npm i`
+3. Run in your browser with `npm start`
 
-### `npm run build`
+## Future improvements
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+With further time further additions I would like to make include
+- Include a range of working user achievement badges that are synced with their progress and appear in their user dashboard. 
+- Additional UX improvements 
+- Allowing users to share challenges together and compare their progress
+- Updating user dashboards with pictures and information of their route along particular milestones.
+- Explore the ability to sync with existing exercise trackers eg, Strava, apple, garmin etc.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## Acknowledgements
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+A big thank you to my project partner Deryn and the support of all the CommandShift tutors and fellow students, who have helped me get to a stage in my learning where I'm now building these kind of projects. It was good to know they always had my back and I will be forever grateful.
 
-### `npm run eject`
+## Authors
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+- [Carla Slattery](https::/github.com/CarlaSlattery)
+- [Deryn Rushworth](https://github.com/derynruah)
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
