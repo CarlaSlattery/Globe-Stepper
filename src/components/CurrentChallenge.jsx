@@ -93,7 +93,7 @@ function CurrentChallenge() {
       <Image
         src={currentChallenge.imageUrl}
         alt="current-challenge"
-        maxH="270px"
+        maxH="500px"
       />
 
       <Heading mt="0.5em" align="center">
