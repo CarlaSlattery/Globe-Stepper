@@ -38,8 +38,7 @@ function CurrentChallenge() {
   const [currentChallenge, setCurrentChallenge] = useState(null);
   const [currentProgress, setCurrentProgress] = useState(null);
 
-  const handlePostDistance = (event) => {
-    event.preventDefault();
+  const handlePostDistance = () => {
     const updatedDistance = fields;
     updatedDistance.UserId = user;
     updatedDistance.ChallengeId = currentChallenge.id;
@@ -200,7 +199,9 @@ function CurrentChallenge() {
             fontWeight="bold"
             letterSpacing="0.1rem"
           >
+
             ({currentChallenge.distanceKM} - {currentProgress}) Km
+
           </Text>
         </Box>
       </Box>
