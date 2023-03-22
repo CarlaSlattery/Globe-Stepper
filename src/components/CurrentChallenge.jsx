@@ -19,6 +19,7 @@ import postDistance from "../requests/postDistance";
 import Alert from "./Alert";
 import getChallenge from "../requests/getChallenge";
 import getProgress from "../requests/getProgress";
+import Achievement from "./Achievement";
 
 function CurrentChallenge() {
   const { user } = useAuthContext();
@@ -141,7 +142,7 @@ function CurrentChallenge() {
             fontWeight="bold"
             letterSpacing="0.1rem"
           >
-            Total distance:
+            Total Km:
           </Text>
           <Text
             bgColor="blue.100"
@@ -151,7 +152,7 @@ function CurrentChallenge() {
             fontWeight="bold"
             letterSpacing="0.1rem"
           >
-            {currentChallenge.distanceKM} Km
+            {currentChallenge.distanceKM}
           </Text>
         </Box>
         <Box
@@ -168,7 +169,7 @@ function CurrentChallenge() {
             fontWeight="bold"
             letterSpacing="0.1rem"
           >
-            Distance Travelled:
+            Travelled Km:
           </Text>
           <Text
             bgColor="blue.100"
@@ -178,7 +179,7 @@ function CurrentChallenge() {
             fontWeight="bold"
             letterSpacing="0.1rem"
           >
-            {currentProgress} Km
+            {currentProgress}
           </Text>
         </Box>
         <Box
@@ -195,7 +196,7 @@ function CurrentChallenge() {
             fontWeight="bold"
             letterSpacing="0.1rem"
           >
-            Distance Remaining:{" "}
+            Remaining Km:
           </Text>
           <Text
             bgColor="blue.100"
@@ -205,7 +206,7 @@ function CurrentChallenge() {
             fontWeight="bold"
             letterSpacing="0.1rem"
           >
-            {currentChallenge.distanceKM - currentProgress} Km
+            {currentChallenge.distanceKM - currentProgress}
           </Text>
         </Box>
       </Box>
@@ -235,7 +236,7 @@ function CurrentChallenge() {
               pl="3em"
               pr="3em"
             >
-              Post
+              Post Km
             </Button>
             <Alert message={alert.message} success={alert.success} />
           </form>
@@ -248,8 +249,10 @@ function CurrentChallenge() {
         mt="1.5em"
         mb="3em"
       >
-        <Heading>Your Completed Challenges</Heading>
-        <Text>See your finished challenges and achievements here!</Text>
+        <Heading>Your Distances</Heading>
+        <Text>See your previous challenge achievements</Text>
+        <Achievement />
+        <Heading>Look how far you&apos;ve come!</Heading>
       </Box>
     </Container>
   );

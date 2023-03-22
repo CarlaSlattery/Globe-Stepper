@@ -43,12 +43,6 @@ const Navbar = () => {
               </Button>
             </NavLink>
 
-            <NavLink to="/achievements">
-              <Button bg="blue.400" color="white">
-                Achievements
-              </Button>
-            </NavLink>
-
             <NavLink to="/">
               <Button bg="blue.400" color="white">
                 Home{" "}

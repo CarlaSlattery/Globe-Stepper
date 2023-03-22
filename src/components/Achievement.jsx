@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import { Container, TableContainer, Heading } from "@chakra-ui/react";
+import { Container, TableContainer } from "@chakra-ui/react";
 import { useAuthContext } from "../hooks/useAuthContext";
 import getProgress from "../requests/getProgress";
 import Alert from "./Alert";
@@ -40,7 +40,6 @@ function Achievement() {
   return (
     <Container>
       <Alert message={alert.message} />
-      <Heading>Look how far you&apos;ve come!</Heading>
       <TableContainer>
         {achievements.map((achievement) => (
           <div className="achievement" key={achievement.id}>
