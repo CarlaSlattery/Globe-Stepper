@@ -31,7 +31,7 @@ function Home() {
         </Text>
       </Box>
       <Container
-        maxW="60%"
+        minW="60%"
         bg="green.300"
         mt="2em"
         mb="2.5em"

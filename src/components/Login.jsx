@@ -44,14 +44,20 @@ const UserLogin = () => {
   };
 
   return (
-    <Container boxShadow="2xl" p="6" rounded="md" bg="blue.400">
+    <Container
+      boxShadow="2xl"
+      p="6"
+      rounded="md"
+      bg="blue.400"
+      justifyContent="center"
+    >
       <Heading color="white" align="center">
         Login
       </Heading>
       <form onSubmit={handleUserLogin}>
         {error && <Alert status="error">{error}</Alert>}
         {isSuccess && <Alert status="success">Login successful!</Alert>}
-        <FormControl>
+        <FormControl w={["90%", "70%", "60%"]}>
           <FormLabel mt="1.5em" color="white">
             Email:
           </FormLabel>
