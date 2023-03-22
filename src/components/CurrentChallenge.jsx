@@ -199,9 +199,7 @@ function CurrentChallenge() {
             fontWeight="bold"
             letterSpacing="0.1rem"
           >
-
             ({currentChallenge.distanceKM} - {currentProgress}) Km
-
           </Text>
         </Box>
       </Box>
