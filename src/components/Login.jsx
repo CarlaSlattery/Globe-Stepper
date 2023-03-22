@@ -2,7 +2,6 @@
 import React, { useState } from "react";
 // eslint-disable-next-line prettier/prettier
 import {
-  Box,
   Heading,
   FormControl,
   FormLabel,
@@ -46,12 +45,16 @@ const UserLogin = () => {
 
   return (
     <Container boxShadow="2xl" p="6" rounded="md" bg="blue.400">
-      <Heading color="white">Login</Heading>
+      <Heading color="white" align="center">
+        Login
+      </Heading>
       <form onSubmit={handleUserLogin}>
         {error && <Alert status="error">{error}</Alert>}
         {isSuccess && <Alert status="success">Login successful!</Alert>}
         <FormControl>
-          <FormLabel>Email:</FormLabel>
+          <FormLabel mt="1.5em" color="white">
+            Email:
+          </FormLabel>
           <Input
             type="text"
             name="email"
@@ -62,7 +65,9 @@ const UserLogin = () => {
           <FormHelperText color="white">Enter your email.</FormHelperText>
         </FormControl>
         <FormControl>
-          <FormLabel>Password</FormLabel>
+          <FormLabel mt="1.5em" color="white">
+            Password
+          </FormLabel>
           <Input
             type="password"
             name="password"
@@ -72,21 +77,31 @@ const UserLogin = () => {
           />
           <FormHelperText color="white">Enter password.</FormHelperText>
         </FormControl>
-        <Button bg="green.300" m="1.5em" type="submit" disabled={isLoading}>
+        <Button
+          bg="green.300"
+          m="1.5em"
+          type="submit"
+          disabled={isLoading}
+          size="lg"
+        >
           {isLoading ? "Logging in..." : "Login"}
           {error && <Alert status="error">{error}</Alert>}
         </Button>
       </form>
 
-      <Box maxW="70%" m="2em">
-        <Heading>Not currently a GlobeStepper?</Heading>
-        <Text fontSize="xl" m="1em">
-          Then come and join us{" "}
-          <Link as={ReactRouter} to="/register">
-            here.
-          </Link>
-        </Text>
-      </Box>
+      <Heading align="center">Not currently a GlobeStepper?</Heading>
+      <Text fontSize="xl" m="1em" align="center">
+        Then come and join us{" "}
+        <Link
+          as={ReactRouter}
+          to="/register"
+          color="white"
+          textDecoration="underline"
+          fontWeight="bold"
+        >
+          here.
+        </Link>
+      </Text>
     </Container>
   );
 };
