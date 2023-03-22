@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
+import { Container, TableContainer, Heading } from "@chakra-ui/react";
 import { useAuthContext } from "../hooks/useAuthContext";
 import getProgress from "../requests/getProgress";
 import Alert from "./Alert";
@@ -37,15 +38,17 @@ function Achievement() {
       </div>
     );
   return (
-    <div className="achievements">
+    <Container>
       <Alert message={alert.message} />
-      <h2>Look how far you have come!</h2>
-      {achievements.map((achievement) => (
-        <div className="achievement" key={achievement.id}>
-          <AchievementCard {...achievement} />
-        </div>
-      ))}
-    </div>
+      <Heading>Look how far you&apos;ve come!</Heading>
+      <TableContainer>
+        {achievements.map((achievement) => (
+          <div className="achievement" key={achievement.id}>
+            <AchievementCard {...achievement} />
+          </div>
+        ))}
+      </TableContainer>
+    </Container>
   );
 }
 

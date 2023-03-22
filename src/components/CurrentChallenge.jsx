@@ -42,7 +42,6 @@ function CurrentChallenge() {
     const updatedDistance = fields;
     updatedDistance.UserId = user;
     updatedDistance.ChallengeId = currentChallenge.id;
-
     postDistance(updatedDistance, setAlert);
     setAlert({ message: "", success: false });
   };
@@ -101,6 +100,15 @@ function CurrentChallenge() {
       </Heading>
       <FormLabel fontSize="lg" mt="0.4em">
         Challenge Completion Percentage
+        <Text
+          pb="0.25em"
+          mt="0"
+          fontSize="lg"
+          fontWeight="bold"
+          letterSpacing="0.1rem"
+        >
+          {`${(currentProgress / currentChallenge.distanceKM) * 100}%`}
+        </Text>
         <Progress
           id="progressPercent"
           size="lg"
@@ -137,12 +145,13 @@ function CurrentChallenge() {
           </Text>
           <Text
             bgColor="blue.100"
-            padding="1em"
-            fontSize="lg"
+            padding="0.25em"
+            align="center"
+            fontSize={32}
             fontWeight="bold"
             letterSpacing="0.1rem"
           >
-            {currentChallenge.distanceKM} km
+            {currentChallenge.distanceKM} Km
           </Text>
         </Box>
         <Box
@@ -163,12 +172,13 @@ function CurrentChallenge() {
           </Text>
           <Text
             bgColor="blue.100"
-            padding="1em"
-            fontSize="lg"
+            padding="0.25em"
+            align="center"
+            fontSize={32}
             fontWeight="bold"
             letterSpacing="0.1rem"
           >
-            {currentProgress} km
+            {currentProgress} Km
           </Text>
         </Box>
         <Box
@@ -189,12 +199,13 @@ function CurrentChallenge() {
           </Text>
           <Text
             bgColor="blue.100"
-            padding="1em"
-            fontSize="lg"
+            padding="0.25em"
+            align="center"
+            fontSize={32}
             fontWeight="bold"
             letterSpacing="0.1rem"
           >
-            {currentChallenge.distanceKM - currentProgress} km
+            {currentChallenge.distanceKM - currentProgress} Km
           </Text>
         </Box>
       </Box>
