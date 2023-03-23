@@ -98,29 +98,38 @@ function CurrentChallenge() {
       <Heading mt="0.5em" align="center">
         Progress Tracker
       </Heading>
-      <FormLabel fontSize="lg" mt="0.4em">
+      <Text fontSize="lg" mt="0.4em" align="center">
         Challenge Completion Percentage
+      </Text>
+      <Box align="center">
         <Text
           pb="0.25em"
           mt="0"
-          fontSize="lg"
+          fontSize="6xl"
+          color="blue.400"
           fontWeight="bold"
+          align="center"
           letterSpacing="0.1rem"
+          border="2px solid"
+          maxW="50%"
         >
-          {`${(currentProgress / currentChallenge.distanceKM) * 100}%`}
+          {`${((currentProgress / currentChallenge.distanceKM) * 100).toFixed(
+            1
+          )}%`}
         </Text>
-        <Progress
-          id="progressPercent"
-          size="lg"
-          mt="1em"
-          mb="1.25em"
-          height="3em"
-          hasStripe
-          isAnimated
-          max={currentChallenge.distanceKM}
-          value={currentProgress}
-        />
-      </FormLabel>
+      </Box>
+      <Progress
+        id="progressPercent"
+        size="lg"
+        mt="1em"
+        mb="1.25em"
+        height="3em"
+        hasStripe
+        isAnimated
+        max={currentChallenge.distanceKM}
+        value={currentProgress}
+      />
+
       <Box
         display="flex"
         alignItems="center"
@@ -222,9 +231,11 @@ function CurrentChallenge() {
                 value={fields.distance}
                 onChange={handleFieldChange}
                 maxW="50%"
+                mr="0.5em"
                 ml="3em"
                 bg="gray.200"
               />
+              Km
             </FormLabel>
             <Button
               bg="green.300"
