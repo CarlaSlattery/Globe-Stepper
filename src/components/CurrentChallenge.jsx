@@ -90,12 +90,14 @@ function CurrentChallenge() {
       <Heading align="center" color="blue.400" p="0.25em">
         {currentChallenge.title}
       </Heading>
-      <Image
-        src={currentChallenge.imageUrl}
-        alt="current-challenge"
-        maxH="500px"
-      />
-
+      <Box align="center">
+        <Image
+          src={currentChallenge.imageUrl}
+          alt="current-challenge"
+          maxH="300px"
+          maxW="70%"
+        />
+      </Box>
       <Heading mt="0.5em" align="center">
         Progress Tracker
       </Heading>
