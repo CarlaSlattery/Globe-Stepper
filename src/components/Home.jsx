@@ -4,7 +4,6 @@ import { Container, Heading, Text, Box } from "@chakra-ui/react";
 // component imports
 import ChallengesList from "./ChallengesList";
 import data from "../data/challenges.json";
-import CurrentChallenge from "./CurrentChallenge";
 
 // import "../styles/challenges-component.css";
 
@@ -48,7 +47,6 @@ function Home() {
       </Container>
 
       <ChallengesList challenges={data.challenges} />
-      <CurrentChallenge />
     </Container>
   );
 }
