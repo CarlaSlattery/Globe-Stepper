@@ -26,7 +26,7 @@ function AchievementCards({ distance, createdAt }) {
         </Tr>
       </Thead>
       <Tr>
-        <Td>{distance}</Td>
+        <Td>{distance} Km</Td>
         <Td>{createdAt.substring(0, 10)}</Td>
       </Tr>
     </Table>
