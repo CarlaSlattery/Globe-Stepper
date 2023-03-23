@@ -57,7 +57,7 @@ const UserLogin = () => {
       <form onSubmit={handleUserLogin}>
         {error && <Alert status="error">{error}</Alert>}
         {isSuccess && <Alert status="success">Login successful!</Alert>}
-        <FormControl w={["90%", "70%", "60%"]}>
+        <FormControl>
           <FormLabel mt="1.5em" color="white">
             Email:
           </FormLabel>
